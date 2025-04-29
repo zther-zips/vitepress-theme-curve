@@ -332,9 +332,9 @@ export const themeConfig = {
   music: {
     enable: false,
     // url
-    url: "https://api-meting.example.com",
+    url: "http://meting.ouo.st/",
     // id
-    id: 9379831714,
+    id: 7612575934,
     // netease / tencent / kugou
     server: "netease",
     // playlist / album / song
