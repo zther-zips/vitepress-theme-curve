@@ -1,11 +1,12 @@
 <!-- 打赏按钮 -->
+<!--
 <template>
   <div v-if="rewardData.enable" class="reward">
     <div class="reward-btn" @click="rewardShow = true">
       <i class="iconfont icon-reward" />
       <span class="text">赞赏博主</span>
     </div>
-    <!-- 设置面板 -->
+    <!-- 设置面板 --
     <Modal
       :show="rewardShow"
       :maxWidth="430"
@@ -42,7 +43,7 @@
     </Modal>
   </div>
 </template>
-
+-->
 <script setup>
 const router = useRouter();
 const { theme } = useData();

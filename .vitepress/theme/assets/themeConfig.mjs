@@ -236,21 +236,21 @@ export const themeConfig = {
       {
         text: "项目",
         items: [
-          { text: "占位符", link: "#", newTab: true },
+          { text: "本站源码", link: "https://github.com/kazukokawagawa/vitepress-theme-curve", newTab: true },
         ],
       },
-      {
-        text: "专栏",
-        items: [
-          { text: "技术分享", link: "/pages/categories/技术分享" },
-          { text: "我的项目", link: "/pages/project" },
-          { text: "效率工具", link: "/pages/tools" },
-        ],
-      },
+      //{
+        //text: "专栏",
+        //items: [
+          //{ text: "技术分享", link: "/pages/categories/技术分享" },
+          //{ text: "我的项目", link: "/pages/project" },
+         // { text: "效率工具", link: "/pages/tools" },
+       // ],
+     // },
       {
         text: "页面",
         items: [
-          { text: "畅所欲言", link: "/pages/message" },
+          //{ text: "畅所欲言", link: "/pages/message" },
           { text: "关于本站", link: "/pages/about" },
           { text: "隐私政策", link: "/pages/privacy" },
           { text: "版权协议", link: "/pages/cc" },
@@ -259,7 +259,7 @@ export const themeConfig = {
       {
         text: "服务",
         items: [
-          { text: "站点状态", link: "#", newTab: true },
+          { text: "站点状态", link: "https://stats.ouo.st", newTab: true },
         ],
       },
     ],
