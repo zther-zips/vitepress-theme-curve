@@ -157,6 +157,11 @@ export const themeConfig = {
           name: "旧站",
           url: "https://ouo.st",
         },
+        {
+          icon: "https://ouo.st/upload/tx.jpg",
+          name: "镜像站",
+          url: "https://backup.chiyu.it",
+        },
       ],
     },
     {
