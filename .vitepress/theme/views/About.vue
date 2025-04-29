@@ -10,6 +10,7 @@
       </div>
       
       <!-- 追求 -->
+      <!--
       <div class="about-item pursuit">
         <span class="tip">#</span>
         <span class="title2">#</span>
@@ -18,7 +19,9 @@
       </div>
     </div>
     <div class="about-content" style="grid-template-columns: 2fr 3fr">
+      -->
       <!-- 技能 -->
+      <!--
       <div class="about-item skills">
         <span class="tip">#</span>
         <span class="title2">#</span>
@@ -38,7 +41,9 @@
           </a>
         </div>
       </div>
+      -->
       <!-- 生涯 -->
+       <!--
       <div class="about-item career">
         <span class="tip">生涯</span>
         <span class="title2">
@@ -56,7 +61,9 @@
       </div>
     </div>
     <div class="about-content" style="grid-template-columns: 3fr 2fr">
+      -->
       <!-- 性格 -->
+       <!--
       <div class="about-item character" style="--color: #4298b4">
         <span class="tip">#</span>
         <span class="title2">#</span>
@@ -75,7 +82,9 @@
           class="male"
         />
       </div>
+    -->
       <!-- 座右铭 -->
+      <!--
       <div class="about-item">
         <span class="tip">#</span>
         <span class="title1" style="margin-top: 20px">#，</span>
@@ -115,6 +124,7 @@
       </div>
     </div>
     <div class="about-content" style="grid-template-columns: 2fr 3fr">
+    -->
       <!-- 数据 -->
       <div
         class="about-item static image"
@@ -149,12 +159,12 @@
         </div>
         <div class="about-item info">
           <div class="info-item">
-            <span class="info-name">生于</span>
+            <span class="info-name">诞生于</span>
             <span class="info-num" style="--color: #43a6c6">2010</span>
           </div>
           <div class="info-item">
-            <span class="info-name">#</span>
-            <span class="info-num" style="--color: #dfac46">#</span>
+            <span class="info-name">生日</span>
+            <span class="info-num" style="--color: #dfac46">0907</span>
           </div>
         </div>
       </div>
@@ -162,16 +172,16 @@
     <!-- 心路历程 -->
     <div class="about-content" style="display: flex">
       <div class="about-item">
-        <span class="tip">#</span>
-        <span class="title2">#</span>
+        <span class="tip">关于这个破站</span>
+        <span class="title2">咱不知道啊</span>
         <p class="text">
-          ###<strong>###</strong>、<strong>###</strong>#<strong>#</strong>。######。
+          先感谢一下<strong>小恒</strong>、<strong>dw3668</strong>以及<strong>咱自己</strong>。没有他们也没有这个站点（。
         </p>
         <p class="text">
-          ####<strong>###</strong>########
+          也不知道写什么了<strong>###</strong>感谢一下吧
         </p>
         <p class="text">
-          ####<strong>####</strong>。#####
+          感谢你<strong>感谢我</strong>。感谢世界
         </p>
       </div>
     </div>
