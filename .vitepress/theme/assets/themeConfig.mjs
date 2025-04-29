@@ -259,7 +259,7 @@ export const themeConfig = {
       {
         text: "服务",
         items: [
-          { text: "站点状态", link: "@", newTab: true },
+          { text: "站点状态", link: "#", newTab: true },
         ],
       },
     ],
@@ -386,6 +386,6 @@ export const themeConfig = {
   },
   // 站点统计
   tongji: {
-    "51la": "",
+    "51la": "3M1I52LMkdPIgpya",
   },
 };
