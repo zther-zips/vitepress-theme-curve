@@ -2,7 +2,7 @@
   <footer id="main-footer" class="main-footer">
     <div class="footer-content">
       <div class="copyright">
-        <span class="time">@ 2019 - {{ thisYear }} By </span>
+        <span class="time">@ 2025 - {{ thisYear }} By </span>
         <a :href="theme.siteMeta.author.link" class="author link" target="_blank">
           {{ theme.siteMeta.author.name }}
         </a>
@@ -10,16 +10,9 @@
           <i class="iconfont icon-safe" />
           {{ theme.icp }}
         </a>
-        <a
-          class="upyun link"
-          href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"
-          target="_blank"
-        >
-          <i class="iconfont icon-upyun" />
-          又拍云
-        </a>
       </div>
       <div class="meta">
+        <!--
         <a class="power link" href="https://vitepress.dev/" target="_blank">
           <span class="by">Powered by</span>
           <span class="name">VitePress</span>
@@ -31,6 +24,7 @@
           <i class="iconfont icon-rss" />
           <span class="name">订阅</span>
         </a>
+        -->
         <a
           class="cc link"
           href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans"
