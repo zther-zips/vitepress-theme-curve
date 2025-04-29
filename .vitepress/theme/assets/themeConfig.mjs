@@ -21,7 +21,7 @@ export const themeConfig = {
     },
   },
   // 备案信息
-  icp: "池ICP备114514号",
+  icp: "萌ICP备20259222号",
   // 建站日期
   since: "2025-04-29",
   // 每页文章数据
@@ -118,26 +118,26 @@ export const themeConfig = {
         { text: "全部标签", link: "/pages/tags", icon: "hashtag" },
       ],
     },
-    {
-      text: "专栏",
-      items: [
-        { text: "技术分享", link: "/pages/categories/技术分享", icon: "technical" },
-        { text: "我的项目", link: "/pages/project", icon: "code" },
-        { text: "效率工具", link: "/pages/tools", icon: "tools" },
-      ],
-    },
+   // {
+     // text: "专栏",
+     // items: [
+      //  { text: "技术分享", link: "/pages/categories/技术分享", icon: "technical" },
+      //  { text: "我的项目", link: "/pages/project", icon: "code" },
+      //  { text: "效率工具", link: "/pages/tools", icon: "tools" },
+    //  ],
+ //   },
     {
       text: "友链",
       items: [
-        { text: "友链鱼塘", link: "/pages/friends", icon: "fish" },
+      //  { text: "友链鱼塘", link: "/pages/friends", icon: "fish" },
         { text: "友情链接", link: "/pages/link", icon: "people" },
       ],
     },
     {
       text: "我的",
       items: [
-        { text: "畅所欲言", link: "/pages/message", icon: "chat" },
-        { text: "致谢名单", link: "/pages/thanks", icon: "reward" },
+        //{ text: "畅所欲言", link: "/pages/message", icon: "chat" },
+        //{ text: "致谢名单", link: "/pages/thanks", icon: "reward" },
         { text: "关于本站", link: "/pages/about", icon: "contacts" },
       ],
     },
@@ -152,28 +152,33 @@ export const themeConfig = {
           name: "主站",
           url: "/",
         },
+        {
+          icon: "https://ouo.st/upload/tx.jpg",
+          name: "旧站",
+          url: "https://ouo.st",
+        },
       ],
     },
     {
       name: "服务",
       list: [
         {
-          icon: "/images/logo/logo.webp",
-          name: "起始页",
-          url: "#",
+          icon: "/images/uptime-favicon.ico",
+          name: "检测",
+          url: "https://stats.ouo.st",
         },
       ],
     },
-    {
-      name: "项目",
-      list: [
-        {
-          icon: "/images/logo/logo.webp",
-          name: "占位符",
-          url: "#",
-        },
-      ],
-    },
+  //  {
+   //   name: "项目",
+   //   list: [
+   //     {
+   //       icon: "/images/logo/logo.webp",
+   //       name: "占位符",
+   //       url: "#",
+   //     },
+   //   ],
+   // },
   ],
   // 封面配置
   cover: {
@@ -332,7 +337,7 @@ export const themeConfig = {
   music: {
     enable: false,
     // url
-    url: "http://meting.ouo.st/",
+    url: "http://meting.ouo.st/api",
     // id
     id: 7612575934,
     // netease / tencent / kugou
