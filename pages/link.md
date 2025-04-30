@@ -22,14 +22,14 @@ import Link from "@/views/Link.vue";
 ### 我的友链信息
 
 - 名称：`池鱼小栈`
-- 描述：`#`
+- 描述：`｜д•´)!!`
 - 地址：`https://chiyu.it/`
 - 头像：`https://chiyu.it/images/logo/logo.webp`
 - 站点图片：`麻烦自行拍摄（不加也行`
 
 ```yml
 name: 池鱼小栈
-desc: #
+desc: ｜д•´)!!
 url: https://chiyu.it/
 avatar: https://chiyu.it/images/logo/logo.webp
 screenshot: 麻烦自行拍摄（不加也行
