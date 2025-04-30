@@ -32,6 +32,12 @@ const linkData = [
         desc: "一个游走在互联网边缘的影子，希望在这个世界留下一点痕迹。",
         url: "https://www.5had0w.com/",
       },
+      {
+        name: "洛雨",
+        avatar: "/images/friend/luoyu.jpg",
+        desc: "历史终将证明一切",
+        url: "https://luotianyi.eu/",
+      },
     ],
   },
     // 丢失
