@@ -109,12 +109,12 @@ onBeforeUnmount(() => {
           opacity: 0.6;
         }
       }
-      .upyun {
-        .iconfont {
-          font-size: 20px;
-          font-weight: normal;
-        }
-      }
+     // .upyun {
+      //  .iconfont {
+      //    font-size: 20px;
+      //    font-weight: normal;
+      //  }
+    //  }
     }
     .meta {
       display: flex;

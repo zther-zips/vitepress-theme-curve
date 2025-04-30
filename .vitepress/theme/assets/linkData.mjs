@@ -3,14 +3,14 @@ const linkData = [
   // 推荐数据
   {
     type: "rec",
-    typeName: "推荐",
-    typeDesc: "都是大佬，推荐关注",
+    typeName: "本站",
+    typeDesc: "自己的东西",
     typeList: [
       {
         name: "池鱼小栈",
         avatar: "/images/logo/logo.webp",
-        desc: "#####",
-        url: "#",
+        desc: "｜д•´)!!",
+        url: "https://chiyu.it",
       },
     ],
   },
@@ -23,11 +23,31 @@ const linkData = [
       {
         name: "池鱼小栈",
         avatar: "/images/logo/logo.webp",
-        desc: "#####",
+        desc: "｜д•´)!!",
         url: "https://chiyu.it",
+      },
+      {
+        name: "1zkn",
+        avatar: "/images/friend/zkn.jpeg",
+        desc: "在技术与游戏世界中不断探索的小小冒险家",
+        url: "https://zkn.moe",
       },
     ],
   },
+    // 丢失
+ // {
+  //  type: "lost",
+   // typeName: "走丢了",
+   // typeDesc: "因为各种原因失联的站点",
+   // typeList: [
+   //   {
+   //     name: "池鱼小栈",
+   //     avatar: "/images/logo/logo.webp",
+   //     desc: "｜д•´)!!",
+   //     url: "https://chiyu.it",
+   //   },
+ //   ],
+ // },
 ];
 
 export default linkData;
