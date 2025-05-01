@@ -102,7 +102,7 @@ export const jumpRedirect = (html, themeConfig, isDom = false) => {
     // 是否启用
     if (!themeConfig.jumpRedirect.enable) return html;
     // 中转页地址
-    const redirectPage = "/redirect";
+    const redirectPage = "/redirect.html";
     // 排除的 className
     const excludeClass = themeConfig.jumpRedirect.exclude;
     if (isDom) {
