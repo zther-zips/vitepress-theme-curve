@@ -126,6 +126,7 @@
     <div class="about-content" style="grid-template-columns: 2fr 3fr">
     -->
       <!-- 数据 -->
+             <!--
       <div
         class="about-item static image"
         style="
@@ -149,6 +150,7 @@
           </div>
         </div>
       </div>
+    -->
       <!-- 信息 -->
       <div class="about-item child">
         <div

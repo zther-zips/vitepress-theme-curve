@@ -145,7 +145,7 @@ export const themeConfig = {
   // 导航栏菜单 - 左侧
   navMore: [
     {
-      name: "博客",
+      name: "项目",
       list: [
         {
           icon: "/images/logo/logo.webp",
@@ -158,9 +158,9 @@ export const themeConfig = {
           url: "https://ouo.st",
         },
         {
-          icon: "/images/logo/logo.webp",
-          name: "镜像站",
-          url: "https://backup.chiyu.it",
+          icon: "/images/logo/other/hot.png",
+          name: "热榜",
+          url: "https://hot.chiyu.it",
         },
       ],
     },
@@ -171,6 +171,11 @@ export const themeConfig = {
           icon: "/images/uptime-favicon.ico",
           name: "检测",
           url: "https://stats.ouo.st",
+        },
+        {
+          icon: "/images/logo/logo.webp",
+          name: "镜像站",
+          url: "https://backup.chiyu.it",
         },
       ],
     },
@@ -344,7 +349,7 @@ export const themeConfig = {
     // url
     url: "https://meting.ouo.st/api",
     // id
-    id: 7612575934,
+    id: 13655809126,
     // netease / tencent / kugou
     server: "netease",
     // playlist / album / song
