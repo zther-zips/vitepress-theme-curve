@@ -175,7 +175,7 @@ export const themeConfig = {
         {
           icon: "/images/uptime-favicon.ico",
           name: "检测",
-          url: "https://stats.ouo.st",
+          url: "https://status.chiyu.it",
         },
         {
           icon: "/images/logo/logo.webp",
@@ -279,7 +279,7 @@ export const themeConfig = {
       {
         text: "服务",
         items: [
-          { text: "站点状态", link: "https://stats.ouo.st", newTab: true },
+          { text: "站点状态", link: "https://status.chiyu.it", newTab: true },
         ],
       },
     ],
