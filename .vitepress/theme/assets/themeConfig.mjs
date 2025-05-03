@@ -162,6 +162,11 @@ export const themeConfig = {
           name: "热榜",
           url: "https://hot.chiyu.it",
         },
+        {
+          icon: "/images/logo/other/nav.png",
+          name: "Nav",
+          url: "https://nav.chiyu.it",
+        },
       ],
     },
     {
