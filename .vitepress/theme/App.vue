@@ -44,12 +44,18 @@
 import { storeToRefs } from "pinia";
 import { mainStore } from "@/store";
 import { calculateScroll, specialDayGray } from "@/utils/helper";
+import cursorInit from "@/utils/cursor.js";
 
 const route = useRoute();
 const store = mainStore();
 const { frontmatter, page, theme } = useData();
 const { loadingStatus, footerIsShow, themeValue, themeType, backgroundType, fontFamily, fontSize } =
   storeToRefs(store);
+
+  onMounted(() => {
+  // 自定义鼠标
+  cursorInit();
+  })
 
 // 右键菜单
 const rightMenuRef = ref(null);
