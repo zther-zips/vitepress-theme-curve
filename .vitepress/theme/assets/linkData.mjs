@@ -38,6 +38,12 @@ const linkData = [
         desc: "历史终将证明一切",
         url: "https://luotianyi.eu/",
       },
+      {
+        name: "洋洋",
+        avatar: "/images/friend/yangy.png",
+        desc: "洋洋的小小Blog",
+        url: "https://yangy.co/",
+      },
     ],
   },
     // 丢失
