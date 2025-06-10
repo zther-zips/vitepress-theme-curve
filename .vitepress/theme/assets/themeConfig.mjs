@@ -274,6 +274,7 @@ export const themeConfig = {
           { text: "关于本站", link: "/pages/about" },
           { text: "隐私政策", link: "/pages/privacy" },
           { text: "版权协议", link: "/pages/cc" },
+          { text: "TODO", link: "/pages/todo" },
         ],
       },
       {
