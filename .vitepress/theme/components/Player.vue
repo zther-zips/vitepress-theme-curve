@@ -130,7 +130,13 @@ watch(
 );
 
 onMounted(() => {
+  // 更改时间：2025.06.11
+  // 更改内容：移除屏幕宽度大于768条件，让播放器一直开启
+  // 发现改了也没什么用，所以改回去了
+  // 改成播放器默认关闭
   if (window.innerWidth >= 768 && playerShow.value && enable) getMusicListData();
+  // 更改后的代码如下
+  // if (playerShow.value && enable) getMusicListData();
 });
 
 onBeforeUnmount(() => {
