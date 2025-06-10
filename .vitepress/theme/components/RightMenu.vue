@@ -347,9 +347,19 @@ const rightMenuFunc = async (type) => {
         window.open(clickedTypeData.value?.href);
         break;
       case "copy-link":
-        const pageLink = theme.value.site + router.route.path;
-        if (pageLink) copyText(pageLink);
+        const pageLink = theme.value?.siteMeta?.site + router.route.path;
+        if (!pageLink) {
+            $message.error("复制失败：无法获取页面地址");
+            return;
+        }
+        copyText(pageLink);
         break;
+        // 以下为源代码 2025.06.10修改
+        // 修复内容：右键复制本页地址信息undefined
+        // 问题原因：pageLink赋值错误
+//        const pageLink = theme.value.site + router.route.path;
+//        if (pageLink) copyText(pageLink);
+//        break;
       case "input-paste":
         const text = await navigator.clipboard.readText();
         if (clickedTypeData.value && typeof clickedTypeData.value === "object") {

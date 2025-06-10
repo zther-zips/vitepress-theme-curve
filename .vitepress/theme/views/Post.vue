@@ -77,6 +77,7 @@
               <span class="name">{{ item }}</span>
             </a>
           </div>
+          <!--
           <a
             href="https://eqnxweimkr5.feishu.cn/share/base/form/shrcnCXCPmxCKKJYI3RKUfefJre"
             class="report"
@@ -85,6 +86,7 @@
             <i class="iconfont icon-report" />
             反馈与投诉
           </a>
+        -->
         </div>
         <RewardBtn />
         <!-- 下一篇 -->

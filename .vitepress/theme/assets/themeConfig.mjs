@@ -25,7 +25,7 @@ export const themeConfig = {
   // 建站日期
   since: "2025-04-29",
   // 每页文章数据
-  postSize: 8,
+  postSize: 5,
   // inject
   inject: {
     // 头部
@@ -354,7 +354,7 @@ export const themeConfig = {
     // url
     url: "https://meting.ouo.st/api",
     // id
-    id: 13655809126,
+    id: 13470307260,
     // netease / tencent / kugou
     server: "netease",
     // playlist / album / song
