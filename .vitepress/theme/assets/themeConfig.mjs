@@ -5,7 +5,7 @@ export const themeConfig = {
     // 站点标题
     title: "池鱼小栈",
     // 站点描述
-    description: "Hello World",
+    description: "跨过晨昏线，便是永夜。",
     // 站点logo
     logo: "/images/logo/logo.webp",
     // 站点地址

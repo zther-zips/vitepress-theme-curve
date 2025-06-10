@@ -5,7 +5,16 @@
 export const getHitokoto = async () => {
   const result = await fetch("https://v1.hitokoto.cn");
   const hitokoto = await result.json();
-  return hitokoto;
+// 源代码如下：
+// 更改时间：2025.06.11
+// 变更功能：延迟一言在后2秒再显示，留给用户时间查看slogan
+  //return hitokoto;
+    // 返回一个新的 Promise，它将在2秒后解析
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(hitokoto);
+    }, 2000); // 2000 毫秒 = 2 秒
+  });
 };
 
 /**
