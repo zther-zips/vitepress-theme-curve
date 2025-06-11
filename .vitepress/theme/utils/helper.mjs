@@ -217,9 +217,9 @@ export const getGreetings = () => {
   const hour = new Date().getHours();
   let hello;
   if (hour < 6) {
-    hello = "凌晨好，昨晚睡得怎么样？";
+    hello = "凌晨好，夜深了。";
   } else if (hour < 9) {
-    hello = "早上好，今天也要开心哦！";
+    hello = "早上好，昨晚睡得怎么样？";
   } else if (hour < 12) {
     hello = "上午好，今天也要加油哦！";
   } else if (hour < 14) {
