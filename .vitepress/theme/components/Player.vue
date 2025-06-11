@@ -210,30 +210,37 @@ onBeforeUnmount(() => {
           }
         }
         .aplayer-lrc {
-          margin: 0;
-          opacity: 0;
-          margin-left: 12px;
-          width: 0;
+          // 更改时间：2025.06.11
+          // 更改内容：移除歌词显示：始终隐藏
+          margin: 0 !important;
+          opacity: 0 !important;
+          // margin: 0;
+          // opacity: 0;
+          width: 0 !important;
+          margin-left: 0 !important; // 确保移除任何左侧间距
+          // margin-left: 12px;
+          // width: 0;
           z-index: 2;
-          transition:
-            width 0.3s,
-            opacity 0.3s;
-          &::before,
+          transition: none; // 移除过渡效果
+          // transition:
+          //   width 0.3s,
+          //   opacity 0.3s;          &::before,
           &::after {
             display: none;
           }
           .aplayer-lrc-contents {
-            p {
-              text-align: center;
-              color: var(--main-card-background);
-              filter: blur(0.8px);
-              transition:
-                filter 0.3s,
-                opacity 0.3s;
-              &.aplayer-lrc-current {
-                filter: blur(0);
-              }
-            }
+            display: none; // 确保歌词内容不显示
+            // p {
+            //   text-align: center;
+            //   color: var(--main-card-background);
+            //   filter: blur(0.8px);
+            //   transition:
+            //     filter 0.3s,
+            //     opacity 0.3s;
+            //   &.aplayer-lrc-current {
+            //     filter: blur(0);
+            //   }
+            // }
           }
         }
         .aplayer-controller {
@@ -311,8 +318,12 @@ onBeforeUnmount(() => {
         }
         .aplayer-info {
           .aplayer-lrc {
-            opacity: 1;
-            width: 200px;
+            // 更改时间：2025.06.11
+            // 更改内容：移除歌词显示：播放状态下也保持隐藏
+            opacity: 0 !important;
+            width: 0 !important;
+            // opacity: 1;
+            // width: 200px;
           }
           .aplayer-controller {
             .aplayer-bar-wrap {
