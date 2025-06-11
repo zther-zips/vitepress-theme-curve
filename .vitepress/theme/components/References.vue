@@ -24,13 +24,23 @@ import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
 import { useData } from 'vitepress';
 
 const { frontmatter } = useData(); // frontmatter 已经在这里声明了
-
+const screenWidth = ref(0);
 // 直接使用 frontmatter 来初始化 references
 const references = ref(frontmatter.value?.references || []); // 不需要重新声明 frontmatter
 
 // 计算属性，用于动态限制标题字数
 const limitedReferences = computed(() => {
-  const screenWidth = window.innerWidth;
+  //2025.06.12更新：在 Next.js 的服务端渲染过程中，应用会在服务器端先进行渲染
+  //而在服务器端的 JavaScript 环境中，并没有浏览器提供的 window 对象。
+  //最简单的解决方法是确保在客户端代码中访问 window
+  //可以通过判断代码是否在浏览器环境中运行来避免在服务器端渲染时执行涉及 window 的代码
+  //使用 typeof window !== 'undefined' 来判断
+  onMounted(() => {
+  // 只有在浏览器环境才会执行这里的代码
+  if (typeof window !== 'undefined') {
+    const screenWidth = window.innerWidth;
+  }
+});
   // 假设你想让标题占据屏幕宽度的某个百分比，例如 70%
   // 这里的 '16' 是一个估算值，代表一个汉字或英文字符的平均像素宽度。
   // 你需要根据你的字体大小和字体类型进行精确调整。

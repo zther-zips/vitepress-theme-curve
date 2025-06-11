@@ -46,6 +46,7 @@ import { mainStore } from "@/store";
 import { calculateScroll, specialDayGray } from "@/utils/helper";
 import cursorInit from "@/utils/cursor.js";
 
+// const screenWidth = ref(0);
 const route = useRoute();
 const store = mainStore();
 const { frontmatter, page, theme } = useData();
@@ -56,7 +57,22 @@ const { loadingStatus, footerIsShow, themeValue, themeType, backgroundType, font
   // 自定义鼠标
   cursorInit();
   })
-
+  //2025.06.12更新：在 Next.js 的服务端渲染过程中，应用会在服务器端先进行渲染
+  //而在服务器端的 JavaScript 环境中，并没有浏览器提供的 window 对象。
+  //最简单的解决方法是确保在客户端代码中访问 window
+  //可以通过判断代码是否在浏览器环境中运行来避免在服务器端渲染时执行涉及 window 的代码
+  //onMounted 钩子： 在 setup 或 data 中避免直接访问 window。
+  //将依赖 window 对象的代码放入 onMounted 钩子中，因为 onMounted 只会在组件挂载到DOM后执行。
+  // onMounted(() => {
+  // 只有在浏览器环境才会执行
+  // if (typeof window !== 'undefined') {
+  //   console.log(window.innerWidth);
+  // }
+// })
+// onMounted(() => {
+  // 这里的代码只会在浏览器环境中执行
+//   screenWidth.value = window.screen.width;
+// });
 // 右键菜单
 const rightMenuRef = ref(null);
 
