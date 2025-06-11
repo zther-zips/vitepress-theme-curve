@@ -3,8 +3,8 @@
     <h1 class="title">你好，欢迎来到{{ theme.siteMeta.title }}</h1>
     <div class="subtitle">
       <Transition name="fade" mode="out-in">
-        <span :key="hitokotoData?.hitokoto" class="text">
-          {{ hitokotoData?.hitokoto ? hitokotoData?.hitokoto : theme.siteMeta.description }}
+        <span :key="displayText" class="text" @click="toggleHitokoto">
+          {{ displayText }}
         </span>
       </Transition>
     </div>
@@ -41,8 +41,9 @@
 </template>
 
 <script setup>
+import { ref, onMounted, onBeforeUnmount, watch, computed } from 'vue';
 import { mainStore } from "@/store";
-import { getHitokoto } from "@/api";
+import { getHitokoto } from "@/api"; // 确保此路径正确，指向您获取一言的函数
 
 const store = mainStore();
 const { theme } = useData();
@@ -80,10 +81,23 @@ const props = defineProps({
 });
 
 const hitokotoData = ref(null);
-const hitokotoTimeOut = ref(null);
-
-// banner
+const hitokotoInitialTimeout = ref(null); // 用于初次加载的定时器
 const bannerType = ref(null);
+
+// 初始时显示默认标语
+const isHitokotoDisplayed = ref(false);
+const defaultSlogan = theme.value.siteMeta.description;
+
+// 用于跟踪是否是“第一次点击”一言以切换到默认标语
+const isFirstClickAfterInitialHitokoto = ref(true);
+
+const displayText = computed(() => {
+  if (isHitokotoDisplayed.value && hitokotoData.value?.hitokoto) {
+    return hitokotoData.value.hitokoto;
+  } else {
+    return defaultSlogan;
+  }
+});
 
 // 获取一言数据
 const getHitokotoData = async () => {
@@ -91,9 +105,24 @@ const getHitokotoData = async () => {
     const result = await getHitokoto();
     const { hitokoto, from, from_who } = result;
     hitokotoData.value = { hitokoto, from, from_who };
+    isHitokotoDisplayed.value = true; // 获取成功后设置为显示一言
   } catch (error) {
-    $message.error("一言获取失败");
+    // $message.error("一言获取失败"); // 假设 $message 可用
     console.error("一言获取失败：", error);
+    // 如果获取失败，仍然保持默认标语状态
+    isHitokotoDisplayed.value = false; // 确保显示的是默认标语
+  }
+};
+
+// 切换一言和默认标语的逻辑
+const toggleHitokoto = async () => {
+  if (isHitokotoDisplayed.value && isFirstClickAfterInitialHitokoto.value) {
+    // 第一次点击：当前显示一言，且是第一次点击，切换到默认标语
+    isHitokotoDisplayed.value = false;
+    isFirstClickAfterInitialHitokoto.value = false; // 标记已完成第一次切换
+  } else {
+    // 从第二次点击开始，或当前显示默认标语：获取并显示新的一言
+    await getHitokotoData();
   }
 };
 
@@ -116,20 +145,25 @@ watch(
 
 onMounted(() => {
   if (props.type === "text") {
-    hitokotoTimeOut.value = setTimeout(() => {
+    // 初次打开时，isHitokotoDisplayed 默认为 false，所以会显示默认标语。
+    // 3秒后获取并显示一言
+    hitokotoInitialTimeout.value = setTimeout(() => {
       getHitokotoData();
-    }, 2000);
+    }, 3000); // 3000 毫秒 = 3 秒
   }
-  // 更改 banner 类型
   bannerType.value = store.bannerType;
 });
 
 onBeforeUnmount(() => {
-  clearTimeout(hitokotoTimeOut.value);
+  // 清除初始加载的定时器，防止组件卸载后仍然执行
+  if (hitokotoInitialTimeout.value) {
+    clearTimeout(hitokotoInitialTimeout.value);
+  }
 });
 </script>
 
 <style lang="scss" scoped>
+/* 样式保持不变 */
 .banner {
   height: 300px;
   display: flex;
