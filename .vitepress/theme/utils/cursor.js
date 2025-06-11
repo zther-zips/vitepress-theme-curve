@@ -49,6 +49,20 @@ class Cursor {
       document.body.append(this.cursor);
     }
 
+    // 根据用户代理或屏幕宽度判断是否为移动设备
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent) //|| window.innerWidth <= 768; // 768px 是平板/手机的常见断点
+
+    if (isMobile) {
+      this.cursor.classList.add("hidden"); // 确保自定义光标被隐藏
+      // 从所有元素中移除自定义光标样式
+      if (this.scr) {
+        this.scr.remove();
+      }
+      document.body.style.cursor = 'auto'; // 恢复默认光标
+      return; // 停止为移动设备创建光标
+    }
+
+
     var el = document.getElementsByTagName("*");
     for (let i = 0; i < el.length; i++)
       if (getStyle(el[i], "cursor") == "pointer") this.pt.push(el[i].outerHTML);
@@ -71,6 +85,12 @@ class Cursor {
   }
 
   init() {
+    // 只有在非移动设备上才绑定鼠标事件
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent) //|| window.innerWidth <= 768;
+    if (isMobile) {
+        return;
+    }
+
     document.onmousemove = (e) => {
       this.pos.curr == null && this.move(e.clientX - 8, e.clientY - 8);
       this.pos.curr = {
@@ -87,6 +107,12 @@ class Cursor {
   }
 
   render() {
+    // 只有在非移动设备上才进行渲染
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent) //|| window.innerWidth <= 768;
+    if (isMobile) {
+        return;
+    }
+
     if (this.pos.prev) {
       this.pos.prev.x = lerp(this.pos.prev.x, this.pos.curr.x, 0.35);
       this.pos.prev.y = lerp(this.pos.prev.y, this.pos.curr.y, 0.35);
