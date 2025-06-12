@@ -146,10 +146,10 @@ watch(
 onMounted(() => {
   if (props.type === "text") {
     // 初次打开时，isHitokotoDisplayed 默认为 false，所以会显示默认标语。
-    // 3秒后获取并显示一言
+    // 4秒后获取并显示一言
     hitokotoInitialTimeout.value = setTimeout(() => {
       getHitokotoData();
-    }, 3000); // 3000 毫秒 = 3 秒
+    }, 4000); // 4000 毫秒 = 4 秒
   }
   bannerType.value = store.bannerType;
 });

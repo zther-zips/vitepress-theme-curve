@@ -41,11 +41,21 @@
 </template>
 
 <script setup>
-import { storeToRefs } from "pinia";
-import { mainStore } from "@/store";
+import { storeToRefs, createPinia } from "pinia";
+import { mainStore, initializeCursor } from "@/store";
 import { calculateScroll, specialDayGray } from "@/utils/helper";
 import cursorInit from "@/utils/cursor.js";
 
+import { createApp } from 'vue';
+import App from '@/App.vue';
+
+const app = createApp(App);
+const pinia = createPinia();
+
+app.use(pinia);
+
+// 在 Pinia store 初始化后调用 initializeCursor
+initializeCursor();
 // const screenWidth = ref(0);
 const route = useRoute();
 const store = mainStore();

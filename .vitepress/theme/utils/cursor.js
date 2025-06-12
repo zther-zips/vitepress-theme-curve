@@ -30,6 +30,7 @@ class Cursor {
       prev: null,
     };
     this.pt = [];
+    this.currentThemeType = 'auto'; // 初始值可以设置为 'auto'
     this.create();
     this.init();
     this.render();
@@ -49,27 +50,47 @@ class Cursor {
       document.body.append(this.cursor);
     }
 
-    // 根据用户代理或屏幕宽度判断是否为移动设备
-    const isMobile = /Mobi|Android/i.test(navigator.userAgent) //|| window.innerWidth <= 768; // 768px 是平板/手机的常见断点
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent) 
 
     if (isMobile) {
-      this.cursor.classList.add("hidden"); // 确保自定义光标被隐藏
-      // 从所有元素中移除自定义光标样式
+      this.cursor.classList.add("hidden"); 
       if (this.scr) {
         this.scr.remove();
       }
-      document.body.style.cursor = 'auto'; // 恢复默认光标
-      return; // 停止为移动设备创建光标
+      document.body.style.cursor = 'auto'; 
+      return; 
     }
-
 
     var el = document.getElementsByTagName("*");
     for (let i = 0; i < el.length; i++)
       if (getStyle(el[i], "cursor") == "pointer") this.pt.push(el[i].outerHTML);
 
-    document.body.appendChild((this.scr = document.createElement("style")));
-    this.scr.innerHTML = `* {cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' width='10px' height='10px'><circle cx='4' cy='4' r='4' fill='white' /></svg>") 4 4, auto !important}`;
+    if (!this.scr) { // 确保只创建一次style标签
+      document.body.appendChild((this.scr = document.createElement("style")));
+    }
+    // 初始光标样式将由外部调用 setThemeType 来设置
   }
+
+  // 修改 updateCursorStyle 方法，接受一个主题类型参数
+  updateCursorStyle(themeType) {
+    let cursorColor;
+    if (themeType === 'auto') {
+      const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      cursorColor = prefersDarkMode ? 'white' : 'black';
+    } else {
+      cursorColor = themeType === 'dark' ? 'white' : 'black';
+    }
+    this.scr.innerHTML = `* {cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' width='10px' height='10px'><circle cx='4' cy='4' r='4' fill='${cursorColor}' /></svg>") 4 4, auto !important}`;
+  }
+
+  // 新增方法：外部调用以更新主题
+  setThemeType(newThemeType) {
+    this.currentThemeType = newThemeType;
+    if (this.cursor && !/Mobi|Android/i.test(navigator.userAgent)) { 
+        this.updateCursorStyle(newThemeType);
+    }
+  }
+
   refresh() {
     this.scr.remove();
     this.cursor.classList.remove("active");
@@ -85,8 +106,7 @@ class Cursor {
   }
 
   init() {
-    // 只有在非移动设备上才绑定鼠标事件
-    const isMobile = /Mobi|Android/i.test(navigator.userAgent) //|| window.innerWidth <= 768;
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent) 
     if (isMobile) {
         return;
     }
@@ -107,8 +127,7 @@ class Cursor {
   }
 
   render() {
-    // 只有在非移动设备上才进行渲染
-    const isMobile = /Mobi|Android/i.test(navigator.userAgent) //|| window.innerWidth <= 768;
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent) 
     if (isMobile) {
         return;
     }

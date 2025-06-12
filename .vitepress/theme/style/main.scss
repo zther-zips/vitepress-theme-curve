@@ -261,7 +261,8 @@ a {
   position: fixed;
   width: 18px;
   height: 18px;
-  background: #fff;
+  // 使用 CSS 变量来控制背景色
+  background: var(--cursor-bg-color, #fff); // 默认值为 #fff (白色)
   border-radius: 25px;
   opacity: 0.25;
   z-index: 10086;

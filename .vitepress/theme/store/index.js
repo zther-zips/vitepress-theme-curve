@@ -1,11 +1,14 @@
 import { defineStore } from "pinia";
+import cursorInit from '@/utils/cursor.js';
+
+let appCursorInstance;
 
 export const mainStore = defineStore("main", {
   state: () => {
     return {
       // 主题类别
       themeType: "auto",
-      themeValue: "light",
+      themeValue: "light", // 实际生效的主题颜色：'light' 或 'dark'
       // banner
       bannerType: "half",
       // 加载状态
@@ -85,9 +88,11 @@ export const mainStore = defineStore("main", {
     changeThemeType() {
       // 禁止壁纸模式切换
       if (this.backgroundType === "image") {
-        $message.warning("无法在壁纸模式下切换明暗模式", {
-          duration: 1500,
-        });
+        if (typeof $message !== "undefined") { 
+          $message.warning("无法在壁纸模式下切换明暗模式", {
+            duration: 1500,
+          });
+        }
         return false;
       }
       this.themeType === "auto"
@@ -95,8 +100,12 @@ export const mainStore = defineStore("main", {
         : this.themeType === "dark"
           ? (this.themeType = "light")
           : (this.themeType = "auto");
+
+      // 计算实际生效的 themeValue 并设置 CSS 变量
+      this.updateActualThemeValue();
+
       // 弹窗提示
-      if (typeof $message !== "undefined") {
+      if (typeof $message !== "undefined") { 
         const text =
           this.themeType === "light"
             ? "浅色模式"
@@ -107,7 +116,50 @@ export const mainStore = defineStore("main", {
           duration: 1500,
         });
       }
+
+      // 通知光标更新主题
+      if (appCursorInstance) {
+        appCursorInstance.setThemeType(this.themeType);
+      }
     },
+
+    // 新增方法：更新实际生效的主题值并设置CSS变量
+    updateActualThemeValue() {
+      let actualTheme;
+      if (this.themeType === 'auto') {
+        // 根据系统偏好决定实际主题
+        const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        actualTheme = prefersDarkMode ? 'dark' : 'light';
+      } else {
+        actualTheme = this.themeType; // 直接使用 'dark' 或 'light'
+      }
+      this.themeValue = actualTheme; // 更新 Pinia 中的 themeValue
+
+      // 设置 CSS 变量到根元素
+      const root = document.documentElement;
+      if (actualTheme === 'light') {
+        root.style.setProperty('--cursor-bg-color', '#000'); // 浅色模式下光标为黑色
+      } else {
+        root.style.setProperty('--cursor-bg-color', '#fff'); // 深色模式下光标为白色
+      }
+      
+      // 同时在根元素上添加或移除class，用于全局样式控制
+      if (actualTheme === 'dark') {
+          root.classList.add('dark');
+          root.classList.remove('light');
+      } else {
+          root.classList.add('light');
+          root.classList.remove('dark');
+      }
+    },
+
+    // 新增action: 外部触发更新主题（用于系统主题变化）
+    triggerThemeUpdate() {
+        this.updateActualThemeValue();
+        if (appCursorInstance) {
+            appCursorInstance.setThemeType(this.themeType);
+        }
+    }
   },
   // 数据持久化
   persist: [
@@ -125,7 +177,48 @@ export const mainStore = defineStore("main", {
         "fontSize",
         "infoPosition",
         "backgroundUrl",
-      ],
+      ], 
     },
   ],
 });
+
+// 在 Pinia store 被创建后，初始化光标并处理主题设置
+export const initializeCursor = () => {
+  const store = mainStore();
+
+  if (!appCursorInstance) {
+    appCursorInstance = cursorInit();
+  }
+
+  // 首次初始化时，确保设置正确的 themeValue 和 CSS 变量
+  store.updateActualThemeValue();
+
+  // 第一次设置光标样式，使用当前 Pinia store 中的 themeType
+  appCursorInstance.setThemeType(store.themeType);
+
+  //新增：监听系统主题偏好变化
+  if (window.matchMedia) {
+    const mediaQueryList = window.matchMedia('(prefers-color-scheme: dark)');
+
+    // 定义监听器函数
+    const handleSystemThemeChange = (e) => {
+      // 只有当 themeType 是 'auto' 时才响应系统变化
+      if (store.themeType === 'auto') {
+        store.triggerThemeUpdate(); // 触发主题更新
+      }
+    };
+
+    // 添加监听器
+    // 使用 addEventListener 是现代推荐的做法，addListener 可能会被弃用
+    if (mediaQueryList.addEventListener) {
+      mediaQueryList.addEventListener('change', handleSystemThemeChange);
+    } else {
+      // 兼容旧版浏览器 (例如 Safari < 14)
+      mediaQueryList.addListener(handleSystemThemeChange);
+    }
+
+    // 可选：在组件销毁时移除监听器，以防内存泄漏（虽然对于全局store通常不是大问题）
+    // 但Pinia store通常是全局的，只要应用活着，监听器就可能需要存在。
+    // 如果你希望在应用关闭时清理，需要更复杂的逻辑。
+  }
+};
