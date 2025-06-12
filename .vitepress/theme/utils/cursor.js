@@ -9,7 +9,9 @@ const lerp = (a, b, n) => {
   return (1 - n) * a + n * b;
 };
 
+// getStyle 辅助函数也需要只在客户端运行
 const getStyle = (el, attr) => {
+  if (typeof window === 'undefined') return false; // 在非浏览器环境下直接返回
   try {
     return window.getComputedStyle ? window.getComputedStyle(el)[attr] : el.currentStyle[attr];
   } catch (e) {
@@ -19,8 +21,12 @@ const getStyle = (el, attr) => {
 };
 
 const cursorInit = () => {
-  mainCursor = new Cursor();
-  return mainCursor;
+  // 确保只在客户端初始化光标
+  if (typeof window !== 'undefined') {
+    mainCursor = new Cursor();
+    return mainCursor;
+  }
+  return null; // 在非浏览器环境下返回 null
 };
 
 class Cursor {
@@ -30,18 +36,25 @@ class Cursor {
       prev: null,
     };
     this.pt = [];
-    this.currentThemeType = 'auto'; // 初始值可以设置为 'auto'
+    this.currentThemeType = 'auto';
+
+    // 所有 DOM 操作和事件绑定都在 create/init 中处理，这些方法会包含环境检查
     this.create();
     this.init();
     this.render();
   }
 
   move(left, top) {
-    this.cursor.style["left"] = `${left}px`;
-    this.cursor.style["top"] = `${top}px`;
+    if (this.cursor) { // 确保 this.cursor 存在
+      this.cursor.style["left"] = `${left}px`;
+      this.cursor.style["top"] = `${top}px`;
+    }
   }
 
   create() {
+    // 确保只在客户端创建 DOM 元素
+    if (typeof document === 'undefined') return;
+
     if (!this.cursor) {
       this.cursor = document.createElement("div");
       this.cursor.id = "cursor";
@@ -50,29 +63,29 @@ class Cursor {
       document.body.append(this.cursor);
     }
 
-    const isMobile = /Mobi|Android/i.test(navigator.userAgent) 
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
     if (isMobile) {
-      this.cursor.classList.add("hidden"); 
+      this.cursor.classList.add("hidden");
       if (this.scr) {
         this.scr.remove();
       }
-      document.body.style.cursor = 'auto'; 
-      return; 
+      document.body.style.cursor = 'auto';
+      return;
     }
 
     var el = document.getElementsByTagName("*");
     for (let i = 0; i < el.length; i++)
       if (getStyle(el[i], "cursor") == "pointer") this.pt.push(el[i].outerHTML);
 
-    if (!this.scr) { // 确保只创建一次style标签
+    if (!this.scr) {
       document.body.appendChild((this.scr = document.createElement("style")));
     }
-    // 初始光标样式将由外部调用 setThemeType 来设置
   }
 
-  // 修改 updateCursorStyle 方法，接受一个主题类型参数
   updateCursorStyle(themeType) {
+    if (typeof window === 'undefined' || !this.scr) return; // 确保在客户端且 style 标签已创建
+
     let cursorColor;
     if (themeType === 'auto') {
       const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -83,15 +96,16 @@ class Cursor {
     this.scr.innerHTML = `* {cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' width='10px' height='10px'><circle cx='4' cy='4' r='4' fill='${cursorColor}' /></svg>") 4 4, auto !important}`;
   }
 
-  // 新增方法：外部调用以更新主题
   setThemeType(newThemeType) {
     this.currentThemeType = newThemeType;
-    if (this.cursor && !/Mobi|Android/i.test(navigator.userAgent)) { 
+    if (typeof window !== 'undefined' && this.cursor && !/Mobi|Android/i.test(navigator.userAgent)) {
         this.updateCursorStyle(newThemeType);
     }
   }
 
   refresh() {
+    if (typeof document === 'undefined') return; // 确保在客户端
+
     this.scr.remove();
     this.cursor.classList.remove("active");
     this.pos = {
@@ -106,7 +120,9 @@ class Cursor {
   }
 
   init() {
-    const isMobile = /Mobi|Android/i.test(navigator.userAgent) 
+    if (typeof document === 'undefined') return; // 确保在客户端
+
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
     if (isMobile) {
         return;
     }
@@ -127,7 +143,9 @@ class Cursor {
   }
 
   render() {
-    const isMobile = /Mobi|Android/i.test(navigator.userAgent) 
+    if (typeof document === 'undefined') return; // 确保在客户端
+
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
     if (isMobile) {
         return;
     }

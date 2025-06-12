@@ -8,18 +8,15 @@ export const mainStore = defineStore("main", {
     return {
       // 主题类别
       themeType: "auto",
-      themeValue: "light", // 实际生效的主题颜色：'light' 或 'dark'
+      themeValue: "light",
       // banner
       bannerType: "half",
       // 加载状态
       loadingStatus: true,
       // 滚动高度
       scrollData: {
-        // 滚动高度
         height: 0,
-        // 滚动百分比
         percentage: 0,
-        // 滚动方向
         direction: "down",
       },
       // 页脚可见性
@@ -61,6 +58,8 @@ export const mainStore = defineStore("main", {
   actions: {
     // 切换应用状态
     changeShowStatus(value, blur = true) {
+      if (typeof document === 'undefined') return; // 确保在客户端
+
       this[value] = !this[value];
       // 阻止滚动
       document.body.style.overflowY = this[value] ? "hidden" : "";
@@ -72,6 +71,8 @@ export const mainStore = defineStore("main", {
     },
     // 更改字体大小
     changeFontSize(isAdd = false) {
+      if (typeof document === 'undefined') return; // 确保在客户端
+
       if (isAdd) {
         if (this.fontSize < 20) {
           this.fontSize++;
@@ -86,6 +87,8 @@ export const mainStore = defineStore("main", {
     },
     // 切换明暗模式
     changeThemeType() {
+      if (typeof window === 'undefined') return; // 确保在客户端
+
       // 禁止壁纸模式切换
       if (this.backgroundType === "image") {
         if (typeof $message !== "undefined") { 
@@ -125,25 +128,24 @@ export const mainStore = defineStore("main", {
 
     // 新增方法：更新实际生效的主题值并设置CSS变量
     updateActualThemeValue() {
+      if (typeof window === 'undefined' || typeof document === 'undefined') return; // 确保在客户端
+
       let actualTheme;
       if (this.themeType === 'auto') {
-        // 根据系统偏好决定实际主题
         const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
         actualTheme = prefersDarkMode ? 'dark' : 'light';
       } else {
-        actualTheme = this.themeType; // 直接使用 'dark' 或 'light'
+        actualTheme = this.themeType;
       }
-      this.themeValue = actualTheme; // 更新 Pinia 中的 themeValue
+      this.themeValue = actualTheme;
 
-      // 设置 CSS 变量到根元素
       const root = document.documentElement;
       if (actualTheme === 'light') {
-        root.style.setProperty('--cursor-bg-color', '#000'); // 浅色模式下光标为黑色
+        root.style.setProperty('--cursor-bg-color', '#000');
       } else {
-        root.style.setProperty('--cursor-bg-color', '#fff'); // 深色模式下光标为白色
+        root.style.setProperty('--cursor-bg-color', '#fff');
       }
       
-      // 同时在根元素上添加或移除class，用于全局样式控制
       if (actualTheme === 'dark') {
           root.classList.add('dark');
           root.classList.remove('light');
@@ -155,6 +157,7 @@ export const mainStore = defineStore("main", {
 
     // 新增action: 外部触发更新主题（用于系统主题变化）
     triggerThemeUpdate() {
+        if (typeof window === 'undefined') return; // 确保在客户端
         this.updateActualThemeValue();
         if (appCursorInstance) {
             appCursorInstance.setThemeType(this.themeType);
@@ -184,41 +187,39 @@ export const mainStore = defineStore("main", {
 
 // 在 Pinia store 被创建后，初始化光标并处理主题设置
 export const initializeCursor = () => {
+  // 确保只在客户端执行初始化
+  if (typeof window === 'undefined' || typeof document === 'undefined') {
+    console.warn('initializeCursor skipped in SSR environment.');
+    return;
+  }
+
   const store = mainStore();
 
   if (!appCursorInstance) {
-    appCursorInstance = cursorInit();
+    appCursorInstance = cursorInit(); // cursorInit 内部也有环境判断
   }
 
-  // 首次初始化时，确保设置正确的 themeValue 和 CSS 变量
-  store.updateActualThemeValue();
+  // 如果 appCursorInstance 在非浏览器环境下返回 null，则跳过后续操作
+  if (!appCursorInstance) {
+    return;
+  }
 
-  // 第一次设置光标样式，使用当前 Pinia store 中的 themeType
+  store.updateActualThemeValue();
   appCursorInstance.setThemeType(store.themeType);
 
-  //新增：监听系统主题偏好变化
   if (window.matchMedia) {
     const mediaQueryList = window.matchMedia('(prefers-color-scheme: dark)');
 
-    // 定义监听器函数
     const handleSystemThemeChange = (e) => {
-      // 只有当 themeType 是 'auto' 时才响应系统变化
       if (store.themeType === 'auto') {
-        store.triggerThemeUpdate(); // 触发主题更新
+        store.triggerThemeUpdate();
       }
     };
 
-    // 添加监听器
-    // 使用 addEventListener 是现代推荐的做法，addListener 可能会被弃用
     if (mediaQueryList.addEventListener) {
       mediaQueryList.addEventListener('change', handleSystemThemeChange);
     } else {
-      // 兼容旧版浏览器 (例如 Safari < 14)
       mediaQueryList.addListener(handleSystemThemeChange);
     }
-
-    // 可选：在组件销毁时移除监听器，以防内存泄漏（虽然对于全局store通常不是大问题）
-    // 但Pinia store通常是全局的，只要应用活着，监听器就可能需要存在。
-    // 如果你希望在应用关闭时清理，需要更复杂的逻辑。
   }
 };
