@@ -192,15 +192,17 @@ onBeforeUnmount(() => {
     font-size: 1.25rem;
     opacity: 0.8;
     animation: fade-up-opacity 0.6s 0.1s backwards;
-    .text {
-      text-align: center;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-    }
+  .text {
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; // WebKit 引擎兼容性
+    -webkit-box-orient: vertical; // WebKit 引擎兼容性
+
+    line-clamp: 2; // 标准的 line-clamp 属性，提高兼容性
   }
+}
   .icon-up {
     font-size: 20px;
     position: absolute;
