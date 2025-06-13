@@ -8,7 +8,6 @@
         <span class="text2 title2">我是 池鱼</span>
         <span class="text3">是一名 可爱mtf（</span>
       </div>
-      
       <!-- 追求 -->
       <!--
       <div class="about-item pursuit">
@@ -175,7 +174,7 @@
     <div class="about-content" style="display: flex">
       <div class="about-item">
         <span class="tip">关于这个破站</span>
-        <span class="title2">咱不知道啊</span>
+        <span class="title2">一个记录自己生活的站点</span>
         <p class="text">
           先感谢一下<strong>小恒</strong>、<strong>dw3668</strong>以及<strong>咱自己</strong>。没有他们也没有这个站点（。
         </p>
@@ -186,7 +185,7 @@
           感谢你<strong>感谢我</strong>。感谢世界
         </p>
         <p class="text">
-          <strong>最后编译日期：2025.06.13</strong>--15:23
+          <strong>最后编译日期：2025.06.13</strong>--16:09
         </p>
       </div>
     </div>
@@ -199,6 +198,7 @@ import { getStatistics } from "@/api";
 const { theme } = useData();
 
 // 技能数据
+
 const skillsData = [
   {
     name: "JavaScript",
