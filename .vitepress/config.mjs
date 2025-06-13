@@ -28,6 +28,7 @@ export default withPwa(
     lang: themeConfig.siteMeta.lang,
     // 简洁的 URL
     cleanUrls: true,
+    base: '/',
     // 最后更新时间戳
     lastUpdated: true,
     // 主题
