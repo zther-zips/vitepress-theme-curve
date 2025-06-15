@@ -336,6 +336,10 @@ export const themeConfig = {
     siteData: {
       enable: true,
     },
+    // 天气数据
+    weather: {
+      enable: true,
+    },
   },
   // 友链
   friends: {
@@ -373,8 +377,9 @@ export const themeConfig = {
 // 请注意不是 Web端 (JS API)，免费申请，每日上限 5000 次
 // 此处提供的服务可能会超量从而无法访问，请自行申请！请自行申请！请自行申请！
 // 若此处设为空则调用 教书先生 API https://api.oioweb.cn/doc/weather/GetWeather
-  //VITE_WEATHER_KEY: "1d65cc630df1f212e1d2e928643e3974",
-
+  //weatherkey: {
+  //"key": "1d65cc630df1f212e1d2e928643e3974",
+ // },
   // 打赏
   rewardData: {
     enable: true,
