@@ -6,7 +6,7 @@
       <div class="about-item hello">
         <span class="text1">你好，很高兴认识你👋</span>
         <span class="text2 title2">我是 池鱼</span>
-        <span class="text3">是一名 可爱mtf（</span>
+        <span class="text3">是一名 正在HRT的MtF🏳‍⚧🏳‍⚧</span>
       </div>
       <!-- 追求 -->
       <!--
@@ -20,10 +20,10 @@
     <div class="about-content" style="grid-template-columns: 2fr 3fr">
       -->
       <!-- 技能 -->
-      <!--
+
       <div class="about-item skills">
-        <span class="tip">#</span>
-        <span class="title2">#</span>
+        <span class="tip">技能</span>
+        <span class="title2">我不会的玩意</span>
         <div class="skills-list">
           <a
             v-for="(item, index) in skillsData"
@@ -40,7 +40,7 @@
           </a>
         </div>
       </div>
-      -->
+
       <!-- 生涯 -->
        <!--
       <div class="about-item career">
@@ -125,7 +125,7 @@
     <div class="about-content" style="grid-template-columns: 2fr 3fr">
     -->
       <!-- 数据 -->
-             <!--
+
       <div
         class="about-item static image"
         style="
@@ -149,16 +149,16 @@
           </div>
         </div>
       </div>
-    -->
+
       <!-- 信息 -->
       <div class="about-item child">
         <div
           class="about-item map image"
-          style="background-image: url(#)"
+          style="background-image: url(https://cdn.jsdelivr.net/gh/kazukokawagawa/chiyupic/other/tc.png)"
         >
           <span class="position">我现在住在 <strong>中国，江苏省，苏州市</strong></span>
         </div>
-        <div class="about-item info">
+        <div class="about-itsem info">
           <div class="info-item">
             <span class="info-name">诞生于</span>
             <span class="info-num" style="--color: #43a6c6">2010</span>
@@ -176,16 +176,16 @@
         <span class="tip">关于这个破站</span>
         <span class="title2">一个记录自己生活的站点</span>
         <p class="text">
-          先感谢一下<strong>小恒</strong>、<strong>dw3668</strong>以及<strong>咱自己</strong>。没有他们也没有这个站点（。
+          首先感谢一下小恒提供的域名贡献
         </p>
         <p class="text">
-          也不知道写什么了<strong>###</strong>感谢一下吧
+          写几句slogan好了
         </p>
         <p class="text">
-          感谢你<strong>感谢我</strong>。感谢世界
+          <strong>跨过晨昏线，便是永夜。</strong>
         </p>
         <p class="text">
-          <strong>最后编译日期：2025.06.15</strong>--21:57
+          我爱你们。
         </p>
       </div>
     </div>
