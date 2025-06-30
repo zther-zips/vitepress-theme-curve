@@ -57,7 +57,7 @@ async function fetchWeather() {
     const { lives } = await getWeather(import.meta.env.VITE_WEATHER_KEY, adcode)
     weatherData.value = lives[0]
   } catch (e) {
-    console.error('获取天气失败：', e)
+    $message.error('获取天气失败：', e)
     // 根据项目使用的 UI 框架，这里可以用 $message.error(...)
   }
 }
