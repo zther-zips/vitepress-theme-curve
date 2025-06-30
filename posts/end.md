@@ -58,7 +58,7 @@ references:
 - **中国的药娘，多数藏在不为人知的社会夹缝里，离每个人的生活很远又很近。**
 :::
 
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=340 height=52 src="//music.163.com/outchain/player?type=2&id=528423473&auto=0&height=32"></iframe>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=320 height=52 src="//music.163.com/outchain/player?type=2&id=528423473&auto=0&height=32"></iframe>
 
 ## 如果你还不认识我的话
 
@@ -653,7 +653,7 @@ references:
 >
 >前行吧 前进吧
 
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=360 height=86 src="//music.163.com/outchain/player?type=2&id=1976813348&auto=0&height=66"></iframe>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=320 height=86 src="//music.163.com/outchain/player?type=2&id=1976813348&auto=0&height=66"></iframe>
 
 :::card
 好想有女孩子的青春和恋爱啊，但是已经要没机会了呢……
