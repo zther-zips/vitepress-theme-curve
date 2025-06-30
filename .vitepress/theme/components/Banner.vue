@@ -83,6 +83,8 @@ const props = defineProps({
 const hitokotoData = ref(null);
 const hitokotoInitialTimeout = ref(null); // 用于初次加载的定时器
 const bannerType = ref(null);
+// —— 新增：自动切换是否激活标志 —— 
+const autoSwitchActive = ref(false)
 
 // 初始时显示默认标语
 const isHitokotoDisplayed = ref(false);
@@ -113,18 +115,34 @@ const getHitokotoData = async () => {
     isHitokotoDisplayed.value = false; // 确保显示的是默认标语
   }
 };
-
-// 切换一言和默认标语的逻辑
-const toggleHitokoto = async () => {
-  if (isHitokotoDisplayed.value && isFirstClickAfterInitialHitokoto.value) {
-    // 第一次点击：当前显示一言，且是第一次点击，切换到默认标语
-    isHitokotoDisplayed.value = false;
-    isFirstClickAfterInitialHitokoto.value = false; // 标记已完成第一次切换
+// —— 将自动切换逻辑拆分成单独函数，不清理定时器 —— 
+async function autoToggleHitokoto() {
+  if (isHitokotoDisplayed.value && !isFirstClickAfterInitialHitokoto.value) {
+    // 隐藏一言，显示默认
+    isHitokotoDisplayed.value = false
   } else {
-    // 从第二次点击开始，或当前显示默认标语：获取并显示新的一言
-    await getHitokotoData();
+    // 拉取新一言
+    await getHitokotoData()
   }
-};
+}
+// 点击切换
+// 点击时：停止自动切换，并切回默认文案
+const toggleHitokoto = async () => {
+  if (autoSwitchActive.value) {
+    // 停掉自动循环
+    clearInterval(autoSwitchInterval.value)
+    autoSwitchActive.value = false
+    // 切回默认文案
+    isHitokotoDisplayed.value = false
+    return
+  }
+  // 只做手动切换（不再重启自动切换）
+  if (isHitokotoDisplayed.value && !isFirstClickAfterInitialHitokoto.value) {
+    isHitokotoDisplayed.value = false
+  } else {
+    await getHitokotoData()
+  }
+}
 
 // 滚动至首页
 const scrollToHome = () => {
@@ -143,21 +161,30 @@ watch(
   },
 );
 
+
+// —— 新增 ——
+// 自动切换的 interval 引用
+const autoSwitchInterval = ref(null)
+
 onMounted(() => {
   if (props.type === "text") {
-    // 初次打开时，isHitokotoDisplayed 默认为 false，所以会显示默认标语。
-    // 4秒后获取并显示一言
-    hitokotoInitialTimeout.value = setTimeout(() => {
-      getHitokotoData();
-    }, 4000); // 4000 毫秒 = 4 秒
+    // 4 秒后首次拉取并显示一言
+    hitokotoInitialTimeout.value = setTimeout(async () => {
+      await getHitokotoData()
+      // 拉取完成后启动自动切换
+      autoSwitchInterval.value = setInterval(() => {
+        autoToggleHitokoto()
+      }, 5000)
+      autoSwitchActive.value = true
+    }, 4000)
   }
-  bannerType.value = store.bannerType;
-});
+})
 
 onBeforeUnmount(() => {
   // 清除初始加载的定时器，防止组件卸载后仍然执行
   if (hitokotoInitialTimeout.value) {
     clearTimeout(hitokotoInitialTimeout.value);
+    clearInterval(autoSwitchInterval.value)
   }
 });
 </script>
