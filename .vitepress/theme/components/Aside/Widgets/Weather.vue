@@ -47,7 +47,7 @@ import { getAdcode, getWeather } from '@/api'
 const weatherData = ref(null)
 
 // 移动端检测：若是移动端，则不请求，直接显示“--”
-const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+const isMobile = /Mobi|Android|iPhone|iPad|Pad|iPod/i.test(navigator.userAgent)
 
 onMounted(async () => {
   if (isMobile) return
