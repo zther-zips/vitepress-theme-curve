@@ -28,7 +28,7 @@ export const mainStore = defineStore("main", {
       // 个性化配置显示
       showSeetings: false,
       // 播放器数据
-      playState: false,
+      playState: true,
       playerShow: true,
       playerVolume: 0.7,
       playerData: {
@@ -51,7 +51,7 @@ export const mainStore = defineStore("main", {
       lastScrollY: 0,
       // 站点背景
       backgroundType: "patterns",
-      backgroundUrl: "https://tuapi.eees.cc/api.php?category={dongman,fengjing}&type=302",
+      backgroundUrl: "https://api.miaomc.cn/image/get",
     };
   },
   getters: {},
