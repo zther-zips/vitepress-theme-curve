@@ -58,30 +58,29 @@ async function fetchWeather() {
     weatherData.value = lives[0]
   } catch (e) {
     $message.error('获取天气失败：', e)
-    // 根据项目使用的 UI 框架，这里可以用 $message.error(...)
   }
 }
 
-onMounted(() => {
+//onMounted(() => {
   // 初次挂载：若是桌面端，则立即拉取
-  if (isDesktop.value) {
-    fetchWeather()
-  }
+ // if (isDesktop.value) {
+ //   fetchWeather()
+//  }
   // 监听窗口尺寸变化
-  window.addEventListener('resize', () => {
-    windowWidth.value = window.innerWidth
-  })
-})
+//  window.addEventListener('resize', () => {
+//    windowWidth.value = window.innerWidth
+//  })
+//})
 
 // 当从“窄屏”切换到“宽屏”时，再次拉接口；切回窄屏则清空数据
-watch(isDesktop, (newVal, oldVal) => {
-  if (newVal && !oldVal) {
-    fetchWeather()
-  }
-  if (!newVal) {
-    weatherData.value = null
-  }
-})
+//watch(isDesktop, (newVal, oldVal) => {
+//  if (newVal && !oldVal) {
+ //   fetchWeather()
+//  }
+//  if (!newVal) {
+//    weatherData.value = null
+//  }
+//})
 </script>
 
 <style lang="scss" scoped>
