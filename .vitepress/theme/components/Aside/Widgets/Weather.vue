@@ -61,16 +61,16 @@ async function fetchWeather() {
   }
 }
 
-//onMounted(() => {
-  // 初次挂载：若是桌面端，则立即拉取
- // if (isDesktop.value) {
- //   fetchWeather()
-//  }
-  // 监听窗口尺寸变化
-//  window.addEventListener('resize', () => {
-//    windowWidth.value = window.innerWidth
-//  })
-//})
+onMounted(() => {
+// 初次挂载：若是桌面端，则立即拉取
+  if (isDesktop.value) {
+    fetchWeather()
+  }
+ //  监听窗口尺寸变化
+  window.addEventListener('resize', () => {
+    windowWidth.value = window.innerWidth
+  })
+})
 
 // 当从“窄屏”切换到“宽屏”时，再次拉接口；切回窄屏则清空数据
 //watch(isDesktop, (newVal, oldVal) => {
