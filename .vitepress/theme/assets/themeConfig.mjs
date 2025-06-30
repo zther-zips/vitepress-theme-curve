@@ -368,9 +368,9 @@ export const themeConfig = {
   // 搜索
   // https://www.algolia.com/
   search: {
-    enable: false,
-    appId: "",
-    apiKey: "",
+    enable: true,
+    appId: "0F1DUC8MAX",
+    apiKey: "1f97c9169943484cfb9a05c825851ca4",
   },
   // 天气 Key
 // 请前往 高德开放平台注册 Web服务 Key
@@ -382,7 +382,7 @@ export const themeConfig = {
  // },
   // 打赏
   rewardData: {
-    enable: true,
+    enable: false,
     // 微信二维码
     wechat: "#",
     // 支付宝二维码
