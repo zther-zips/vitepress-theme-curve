@@ -46,16 +46,18 @@ import { getAdcode, getWeather } from '@/api'
 
 const weatherData = ref(null)
 
+// 移动端检测：若是移动端，则不请求，直接显示“--”
+const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+
 onMounted(async () => {
+  if (isMobile) return
   try {
-    // 1. 获取当前城市的 adcode
     const { adcode } = await getAdcode(import.meta.env.VITE_WEATHER_KEY)
-    // 2. 拉取天气数据
     const { lives } = await getWeather(import.meta.env.VITE_WEATHER_KEY, adcode)
     weatherData.value = lives[0]
   } catch (e) {
-    // 请确保你全局注册或引入了$message
-    $message.error('获取天气失败，可能是天气 API 超出使用上限')
+    console.error('获取天气失败：', e)
+    $message.error("获取天气失败，可能是天气API超出使用上限");
   }
 })
 </script>
