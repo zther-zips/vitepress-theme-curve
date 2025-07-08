@@ -912,7 +912,14 @@ references:
 
 >**希望我的来世可以是女孩子**
 
+
 *再见啦*
+
+<div>
+<video src="https://cdn.jsdmirror.com/gh/kazukokawagawa/chiyupic@master/pic/end/1.mp4" width="100%" controls="controls">
+Your browser does not support the video tag.
+</video>
+</div>
 
 ## 朋友们
 
