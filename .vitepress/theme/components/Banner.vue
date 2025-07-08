@@ -174,7 +174,7 @@ onMounted(() => {
       // 拉取完成后启动自动切换
       autoSwitchInterval.value = setInterval(() => {
         autoToggleHitokoto()
-      }, 5000)
+      }, 7000)
       autoSwitchActive.value = true
     }, 4000)
   }
