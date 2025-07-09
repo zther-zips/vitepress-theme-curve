@@ -44,23 +44,36 @@
 import { ref, onMounted } from 'vue'
 import { getAdcode, getWeather } from '@/api'
 
-const weatherData = ref(null)
+// 声明会在请求出错时抛出的事件
+const emit = defineEmits(['fetch-error'])
 
-// 移动端检测：若是移动端，则不请求，直接显示“--”
+const weatherData = ref(null)
+const loading     = ref(true)
+const error       = ref(false)
+
+// 移动端检测：若是移动端，则不请求，直接不渲染
 const isMobile = /Mobi|Android|iPhone|iPad|Pad|iPod/i.test(navigator.userAgent)
 
 onMounted(async () => {
-  if (isMobile) return
+  if (isMobile) {
+    loading.value = false
+    return
+  }
   try {
-    const { adcode } = await getAdcode(import.meta.env.VITE_WEATHER_KEY)
-    const { lives } = await getWeather(import.meta.env.VITE_WEATHER_KEY, adcode)
-    weatherData.value = lives[0]
+    const { adcode }        = await getAdcode(import.meta.env.VITE_WEATHER_KEY)
+    const { lives }         = await getWeather(import.meta.env.VITE_WEATHER_KEY, adcode)
+    weatherData.value       = lives[0]
   } catch (e) {
     console.error('获取天气失败：', e)
-    $message.error("获取天气失败，可能是天气API超出使用上限");
+    error.value = true
+    // 向父组件抛出“fetch-error”事件
+    emit('fetch-error', e)
+  } finally {
+    loading.value = false
   }
 })
 </script>
+
 
 <style lang="scss" scoped>
 .weather-data {
