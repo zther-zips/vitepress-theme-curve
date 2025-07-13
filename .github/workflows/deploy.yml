@@ -45,7 +45,7 @@ jobs:
         run: pnpm install
 
       - name: Build VitePress site
-        run: pnpm docs:build # 或 pnpm build，取决于你的 package.json
+        run: pnpm build # 或 pnpm build，取决于你的 package.json
 
       - name: Upload build artifact
         uses: actions/upload-pages-artifact@v3
