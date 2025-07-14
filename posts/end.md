@@ -101,7 +101,7 @@ references:
 **池鱼是一个温柔而善良的人呢**
 :::
 
-![我爱你](https://public.chiyu.it/pic/end/ys/ILOVEYOU.jpg)
+![我爱你](https://raw.chiyu.it/pic/end/ys/ILOVEYOU.jpg)
 
 :::card
 
@@ -162,7 +162,7 @@ references:
 
 :::
 
-![十零寄予的信](https://public.chiyu.it/pic/end/xin.jpg)
+![十零寄予的信](https://raw.chiyu.it/pic/end/xin.jpg)
 
 ---
 ### 同学给予的纸条
@@ -193,7 +193,7 @@ references:
 
 ---
 
-![第一张纸条](https://public.chiyu.it/pic/end/ys/zt1.jpg)
+![第一张纸条](https://raw.chiyu.it/pic/end/ys/zt1.jpg)
 
 ---
 > **第二条**
@@ -219,7 +219,7 @@ references:
 
 ---
 
-![第二张纸条](https://public.chiyu.it/pic/end/ys/zt2.jpg)
+![第二张纸条](https://raw.chiyu.it/pic/end/ys/zt2.jpg)
 
 ---
 > **第三条**
@@ -245,7 +245,7 @@ references:
 
 ---
 
-![第三张纸条](https://public.chiyu.it/pic/end/ys/zt3.jpg)
+![第三张纸条](https://raw.chiyu.it/pic/end/ys/zt3.jpg)
 
 ---
 > **第四条**
@@ -267,7 +267,7 @@ references:
 
 ---
 
-![第四张纸条](https://public.chiyu.it/pic/end/ys/zt4.jpg)
+![第四张纸条](https://raw.chiyu.it/pic/end/ys/zt4.jpg)
 
 ---
 > **第五条**
@@ -297,7 +297,7 @@ references:
 
 ---
 
-![第五张纸条](https://public.chiyu.it/pic/end/ys/zt5.jpg)
+![第五张纸条](https://raw.chiyu.it/pic/end/ys/zt5.jpg)
 
 ---
 > **第六条**
@@ -324,7 +324,7 @@ references:
 :::
 ---
 
-![第六张纸条](https://public.chiyu.it/pic/end/ys/zt6.jpg)
+![第六张纸条](https://raw.chiyu.it/pic/end/ys/zt6.jpg)
 
 ---
 > **第七条**
@@ -358,7 +358,7 @@ references:
 :::
 ---
 
-![第七张纸条](https://public.chiyu.it/pic/end/ys/zt7.jpg)
+![第七张纸条](https://raw.chiyu.it/pic/end/ys/zt7.jpg)
 
 ---
 > **第八条**
@@ -387,7 +387,7 @@ references:
 :::
 ---
 
-![第八张纸条](https://public.chiyu.it/pic/end/ys/zt8.jpg)
+![第八张纸条](https://raw.chiyu.it/pic/end/ys/zt8.jpg)
 
 ---
 > **第九条**
@@ -418,7 +418,7 @@ references:
 :::
 ---
 
-![第九张纸条](https://public.chiyu.it/pic/end/ys/zt9.jpg)
+![第九张纸条](https://raw.chiyu.it/pic/end/ys/zt9.jpg)
 
 ---
 > **第十条**
@@ -459,7 +459,7 @@ references:
 :::
 ---
 
-![第十张纸条](https://public.chiyu.it/pic/end/ys/zt10.jpg)
+![第十张纸条](https://raw.chiyu.it/pic/end/ys/zt10.jpg)
 
 ---
 > **第十一条**
@@ -492,7 +492,7 @@ references:
 :::
 ---
 
-![第十一张纸条](https://public.chiyu.it/pic/end/ys/zt11.jpg)
+![第十一张纸条](https://raw.chiyu.it/pic/end/ys/zt11.jpg)
 
 ---
 ## 关于
@@ -601,7 +601,7 @@ references:
 在医院住着，**盯着看心电监护上一点点跳动的各种数值，思考着迷茫的未来。**
 :::
 
-![当时住院的医院照片](https://public.chiyu.it/pic/end/yiyuan.jpg)
+![当时住院的医院照片](https://raw.chiyu.it/pic/end/yiyuan.jpg)
 
 **每一年都在死去 记不清上一年的自己是什么样的**
 
@@ -825,7 +825,7 @@ references:
 
 **第一位线下喊我妹妹的人呢 我会感谢她一辈子的**
 
-![拥抱](https://public.chiyu.it/pic/end/ys/HUG.jpg)
+![拥抱](https://raw.chiyu.it/pic/end/ys/HUG.jpg)
 
 :::
 
@@ -916,7 +916,7 @@ references:
 *再见啦*
 
 <div>
-<video src="https://public.chiyu.it/pic/end/1.mp4" width="100%" controls="controls">
+<video src="https://raw.chiyu.it/pic/end/1.mp4" width="100%" controls="controls">
 Your browser does not support the video tag.
 </video>
 </div>
@@ -955,7 +955,7 @@ Your browser does not support the video tag.
 我永远记得你。
 :::
 
-![陪你去热爱这个世界](https://public.chiyu.it/pic/end/ys/world.jpg)
+![陪你去热爱这个世界](https://raw.chiyu.it/pic/end/ys/world.jpg)
 
 ## 终章
 

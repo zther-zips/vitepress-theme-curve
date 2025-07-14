@@ -154,7 +154,7 @@
       <div class="about-item child">
         <div
           class="about-item map image"
-          style="background-image: url(https://public.chiyu.it/other/tc.png)"
+          style="background-image: url(https://raw.chiyu.it/other/tc.png)"
         >
           <span class="position">我现在住在 <strong>中国，江苏省，苏州市</strong></span>
         </div>
