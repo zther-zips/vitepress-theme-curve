@@ -208,6 +208,9 @@ export const initializeCursor = () => {
   store.updateActualThemeValue();
   appCursorInstance.setThemeType(store.themeType);
 
+  // 新增：设置 html 元素的字体大小
+  document.documentElement.style.fontSize = store.fontSize + 'px';
+
   if (window.matchMedia) {
     const mediaQueryList = window.matchMedia('(prefers-color-scheme: dark)');
 
