@@ -108,14 +108,14 @@ export const themeConfig = {
         },
       ],
       // 预载 DocSearch
-      [
-        "link",
-        {
-          href: "https://X5EBEZB53I-dsn.algolia.net",
-          rel: "preconnect",
-          crossorigin: "",
-        },
-      ],
+      //[
+      //  "link",
+      //  {
+      //    href: "https://X5EBEZB53I-dsn.algolia.net",
+      //    rel: "preconnect",
+      //    crossorigin: "",
+      //  },
+     // ],
     ],
   },
   // 导航栏菜单
