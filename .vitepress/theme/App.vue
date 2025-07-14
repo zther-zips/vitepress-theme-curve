@@ -143,7 +143,7 @@ const changeSiteThemeType = () => {
 const changeSiteFont = () => {
   try {
     const htmlElement = document.documentElement;
-    htmlElement.classList.remove("lxgw", "hmos");
+    htmlElement.classList.remove("vsans", "hmos");
     htmlElement.classList.add(fontFamily.value);
     htmlElement.style.fontSize = fontSize.value + "px";
   } catch (error) {

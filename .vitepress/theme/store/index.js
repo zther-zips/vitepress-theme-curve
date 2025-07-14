@@ -2,6 +2,7 @@ import { defineStore } from "pinia";
 import cursorInit from '@/utils/cursor.js';
 
 let appCursorInstance;
+const isMobile = typeof navigator !== 'undefined' && /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
 export const mainStore = defineStore("main", {
   state: () => {
@@ -42,9 +43,9 @@ export const mainStore = defineStore("main", {
       // 背景模糊
       backgroundBlur: false,
       // 全站字体
-      fontFamily: "hmos",
+      fontFamily: "vsans",
       // 全站字体大小
-      fontSize: 16,
+      fontSize: isMobile ? 16 : 17,
       // 信息显示位置
       infoPosition: "fixed",
       // 上次滚动位置

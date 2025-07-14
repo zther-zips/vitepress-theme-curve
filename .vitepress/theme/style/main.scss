@@ -54,12 +54,15 @@ html.dark {
 
 // 字体
 html {
+  &.vsans {
+    --main-font-family: "vivosans", sans-serif;
+  }
   &.hmos {
     --main-font-family: "HarmonyOS_Regular", sans-serif;
   }
-  &.lxgw {
-    --main-font-family: "LXGW WenKai Screen", sans-serif;
-  }
+  p {
+  font-weight: 500; /* Medium */
+}
   .iconfont {
     font-size: 1rem;
   }

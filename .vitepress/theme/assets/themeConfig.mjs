@@ -57,7 +57,16 @@ export const themeConfig = {
         {
           crossorigin: "",
           rel: "preconnect",
-          href: "https://mirrors.sustech.edu.cn",
+          href: "https://cdn.jsdmirror.com",
+        },
+      ],
+      // vivo sans
+      [
+        "link",
+        {
+          crossorigin: "anonymous",
+          rel: "stylesheet",
+          href: "https://cdn.jsdmirror.com/gh/kazukokawagawa/chiyupic@main/fonts/vivosans.css",
         },
       ],
       // HarmonyOS font
@@ -67,14 +76,6 @@ export const themeConfig = {
           crossorigin: "anonymous",
           rel: "stylesheet",
           href: "https://s1.hdslb.com/bfs/static/jinkela/long/font/regular.css",
-        },
-      ],
-      [
-        "link",
-        {
-          crossorigin: "anonymous",
-          rel: "stylesheet",
-          href: "https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/lxgw-wenkai-screen-webfont/1.7.0/style.css",
         },
       ],
       // iconfont

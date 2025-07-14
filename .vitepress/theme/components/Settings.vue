@@ -19,16 +19,16 @@
           <span class="set-label">全站字体</span>
           <div class="set-options">
             <span
+              :class="['options', { choose: fontFamily === 'vsans' }]"
+              @click="fontFamily = 'vsans'"
+            >
+              vivo Sans
+            </span>
+            <span
               :class="['options', { choose: fontFamily === 'hmos' }]"
               @click="fontFamily = 'hmos'"
             >
               HarmonyOS Sans
-            </span>
-            <span
-              :class="['options', { choose: fontFamily === 'lxgw' }]"
-              @click="fontFamily = 'lxgw'"
-            >
-              霞鹜文楷
             </span>
           </div>
         </div>
