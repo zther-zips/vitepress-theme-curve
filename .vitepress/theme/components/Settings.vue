@@ -30,6 +30,12 @@
             >
               HarmonyOS Sans
             </span>
+            <span
+              :class="['options', { choose: fontFamily === 'xlfont' }]"
+              @click="fontFamily = 'xlfont'"
+            >
+              小赖字体
+            </span>
           </div>
         </div>
         <div class="set-item">

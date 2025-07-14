@@ -60,6 +60,9 @@ html {
   &.hmos {
     --main-font-family: "HarmonyOS_Regular", sans-serif;
   }
+  &.xlfont {
+    --main-font-family: "xiaolai", sans-serif;
+  }
   p {
   font-weight: 500; /* Medium */
 }

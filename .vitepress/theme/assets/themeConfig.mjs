@@ -78,6 +78,15 @@ export const themeConfig = {
           href: "https://s1.hdslb.com/bfs/static/jinkela/long/font/regular.css",
         },
       ],
+      // 小赖字体
+      [
+        "link",
+        {
+          crossorigin: "anonymous",
+          rel: "stylesheet",
+          href: "https://cdn.jsdmirror.com/gh/kazukokawagawa/chiyupic@main/fonts/xiaolai.css",
+        },
+      ],
       // iconfont
       [
         "link",

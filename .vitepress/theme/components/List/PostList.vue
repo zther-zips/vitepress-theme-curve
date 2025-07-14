@@ -11,7 +11,6 @@
       <div v-if="!simple && showCover(item)" class="post-cover">
         <img :src="getCover(item)" :alt="item.title">
       </div>
-      
       <div class="post-content">
         <div v-if="!simple && item?.categories" class="post-category">
           <span v-for="cat in item?.categories" :key="cat" class="cat-name">
