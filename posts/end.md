@@ -916,9 +916,19 @@ references:
 *再见啦*
 
 <div>
-<video src="https://raw.chiyu.it/pic/end/1.mp4" width="100%" controls="controls">
-Your browser does not support the video tag.
-</video>
+<video id="video" controls></video>
+<script src="https://cdn.jsdmirror.com/npm/hls.js@latest"></script>
+<script>
+  if (Hls.isSupported()) {
+    var video = document.getElementById('video');
+    var hls = new Hls();
+    hls.loadSource('https://raw.chiyu.it/pic/end/video/1.m3u8');
+    hls.attachMedia(video);
+  } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    // Safari 原生支持
+    video.src = 'https://raw.chiyu.it/pic/end/video/1.m3u8';
+  }
+</script>
 </div>
 
 ## 朋友们
