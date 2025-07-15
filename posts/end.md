@@ -916,19 +916,7 @@ references:
 *再见啦*
 
 <div>
-<video id="video" controls></video>
-<script src="https://cdn.jsdmirror.com/npm/hls.js@latest"></script>
-<script>
-  if (Hls.isSupported()) {
-    var video = document.getElementById('video');
-    var hls = new Hls();
-    hls.loadSource('https://raw.chiyu.it/pic/end/video/1.m3u8');
-    hls.attachMedia(video);
-  } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-    // Safari 原生支持
-    video.src = 'https://raw.chiyu.it/pic/end/video/1.m3u8';
-  }
-</script>
+<HlsPlayer src="https://raw.chiyu.it/pic/end/video/1.m3u8" />
 </div>
 
 ## 朋友们
