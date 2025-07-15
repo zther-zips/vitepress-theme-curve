@@ -15,21 +15,22 @@
 <script setup>
 import { onMounted, onBeforeUnmount, ref } from 'vue'
 
-// 组件参数
+// 定义组件属性
 const props = defineProps({
-  src: { type: String, required: true },       // 播放地址
-  poster: { type: String, default: '' },       // 可选封面
-  autoplay: { type: Boolean, default: false }, // 自动播放
-  muted: { type: Boolean, default: false },    // 静音
-  loop: { type: Boolean, default: false }      // 循环播放
+  src: { type: String, required: true },       // HLS 播放地址
+  poster: { type: String, default: '' },       // 视频封面
+  autoplay: { type: Boolean, default: false }, // 是否自动播放
+  muted: { type: Boolean, default: false },    // 是否静音
+  loop: { type: Boolean, default: false }      // 是否循环播放
 })
 
 const container = ref(null)
 const video = ref(null)
 let observer = null
 
-// 缓存 Promise，避免多次加载 CDN
+// 全局缓存 HLS.js 加载 Promise，避免重复加载
 let hlsJsLoader = null
+
 function loadHlsJsOnce() {
   if (window.Hls) return Promise.resolve(window.Hls)
   if (hlsJsLoader) return hlsJsLoader
@@ -48,27 +49,26 @@ function loadHlsJsOnce() {
 async function initPlayer() {
   if (!video.value) return
 
-  const url = props.src
-
-  // 设置静音/循环属性
+  // 设置视频元素属性
   video.value.muted = props.muted
   video.value.loop = props.loop
 
-  // Safari 原生支持 m3u8
+  // Safari 原生支持 HLS
   if (video.value.canPlayType('application/vnd.apple.mpegurl')) {
-    video.value.src = url
+    video.value.src = props.src
   } else {
+    // 动态加载 HLS.js，仅加载一次
     const Hls = await loadHlsJsOnce()
     if (Hls.isSupported()) {
       const hls = new Hls()
-      hls.loadSource(url)
+      hls.loadSource(props.src)
       hls.attachMedia(video.value)
     } else {
-      console.warn('当前浏览器不支持 HLS.js')
+      console.warn('当前浏览器不支持 HLS.js 播放')
     }
   }
 
-  // 自动播放
+  // 尝试自动播放
   if (props.autoplay) {
     video.value.play().catch(() => {
       console.log('⚠️ 自动播放被浏览器阻止，需要用户交互')
@@ -77,7 +77,7 @@ async function initPlayer() {
 }
 
 onMounted(() => {
-  // IntersectionObserver 懒加载：视频进入视口才初始化
+  // 使用 IntersectionObserver 实现懒加载
   observer = new IntersectionObserver((entries) => {
     for (const entry of entries) {
       if (entry.isIntersecting) {
@@ -87,7 +87,7 @@ onMounted(() => {
       }
     }
   }, {
-    rootMargin: '100px' // 提前100px加载
+    rootMargin: '100px' // 视口外 100px 时预加载
   })
 
   if (container.value) {
