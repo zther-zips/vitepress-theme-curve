@@ -1,12 +1,12 @@
 <!-- 打赏按钮 -->
-<!--
+
 <template>
   <div v-if="rewardData.enable" class="reward">
     <div class="reward-btn" @click="rewardShow = true">
       <i class="iconfont icon-reward" />
       <span class="text">赞赏博主</span>
     </div>
-    <!-- 设置面板 --
+    <!-- 设置面板 -->
     <Modal
       :show="rewardShow"
       :maxWidth="430"
@@ -34,35 +34,35 @@
           </a>
         </div>
         <div v-if="showJump" class="all-list s-card hover" @click="toRewardList">
-          <span class="title">全部赞赏者名单</span>
+          <span class="title">关于赞赏费用</span>
           <span class="tip">
-            赞赏金额将全部用于开源项目维护，以及服务器、域名及各类云服务的开销
+            赞赏金额将全部用于开源项目维护，以及服务器、域名及各类作者生活的开销
           </span>
         </div>
       </div>
     </Modal>
   </div>
 </template>
--->
+
 <script setup>
-// const router = useRouter();
-// const { theme } = useData();
-// const { rewardData } = theme.value;
+ const router = useRouter();
+ const { theme } = useData();
+ const { rewardData } = theme.value;
 
-// const props = defineProps({
-//   showJump: {
-//     type: Boolean,
-//     default: true,
-//   },
-// });
+ const props = defineProps({
+   showJump: {
+     type: Boolean,
+     default: true,
+   },
+ });
 // 赞赏显示
-// const rewardShow = ref(false);
+ const rewardShow = ref(false);
 
-// 跳转至赞赏名单
-// const toRewardList = () => {
-//   rewardShow.value = false;
-//   router.go("/pages/thanks");
-// };
+  //跳转至赞赏名单
+  const toRewardList = () => {
+   rewardShow.value = false;
+   // router.go("/pages/thanks");
+ };
 </script>
 
 <style lang="scss" scoped>

@@ -163,11 +163,6 @@ export const themeConfig = {
           url: "/",
         },
         {
-          icon: "https://ouo.st/upload/tx.jpg",
-          name: "旧站",
-          url: "https://ouo.st",
-        },
-        {
           icon: "/images/logo/other/hot.png",
           name: "热榜",
           url: "https://hot.chiyu.it",
@@ -392,11 +387,11 @@ export const themeConfig = {
  // },
   // 打赏
   rewardData: {
-    enable: false,
+    enable: true,
     // 微信二维码
-    wechat: "#",
+    wechat: "/images/pay/wx.webp",
     // 支付宝二维码
-    alipay: "#",
+    alipay: "/images/pay/zfb.webp",
   },
   // 图片灯箱
   fancybox: {
