@@ -44,6 +44,12 @@ const linkData = [
         desc: "洋洋的小小Blog",
         url: "https://yangy.co/",
       },
+      {
+        name: "幽默的小刘",
+        avatar: "/images/friend/lzch.jpg",
+        desc: "小刘的小小技术blog",
+        url: "https://www.lzch.top/",
+      },
     ],
   },
     // 丢失
