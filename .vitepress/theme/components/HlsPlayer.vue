@@ -77,22 +77,20 @@ async function initPlayer() {
 }
 
 onMounted(() => {
-  // 使用 IntersectionObserver 实现懒加载
+  if (!('IntersectionObserver' in window)) {
+    initPlayer() // 不支持 IntersectionObserver 时直接初始化
+    return
+  }
   observer = new IntersectionObserver((entries) => {
     for (const entry of entries) {
       if (entry.isIntersecting) {
         initPlayer()
-        observer.disconnect() // 初始化后停止监听
+        observer.disconnect()
         break
       }
     }
-  }, {
-    rootMargin: '100px' // 视口外 100px 时预加载
-  })
-
-  if (container.value) {
-    observer.observe(container.value)
-  }
+  }, { rootMargin: '100px' })
+  if (container.value) observer.observe(container.value)
 })
 
 onBeforeUnmount(() => {
