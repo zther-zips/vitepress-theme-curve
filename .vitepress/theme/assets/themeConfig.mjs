@@ -307,7 +307,7 @@ export const themeConfig = {
     twikoo: {
       // 必填，若不想使用 CDN，可以使用 pnpm add twikoo 安装并引入
       js: "https://cdn.jsdelivr.net/npm/twikoo@1.6.42/dist/twikoo.all.min.js",
-      envId: "https://twikoo.ouo.st",
+      envId: "https://twikoo.20100907.xyz",
       // 环境地域，默认为 ap-shanghai，腾讯云环境填 ap-shanghai 或 ap-guangzhou；Vercel 环境不填
       region: "",
       lang: "zh-CN",
@@ -362,7 +362,7 @@ export const themeConfig = {
   music: {
     enable: true,
     // url
-    url: "https://meting.ouo.st/api",
+    url: "https://meting.20100907.xyz/api",
     // id
     id: 13470307260,
     // netease / tencent / kugou
