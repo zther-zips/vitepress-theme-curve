@@ -345,6 +345,9 @@ export const themeConfig = {
     weather: {
       enable: true,
     },
+    HelloGithub: {
+      enable: true,
+    },
   },
   // 友链
   friends: {

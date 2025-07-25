@@ -57,7 +57,7 @@ const linkData = [
         url: "https://www.qingfengnb.cn/",
       },
       {
-        name: "sy",
+        name: "SDG",
         avatar: "/images/friend/clogo.webp",
         desc: "With you, through all.",
         url: "https://ddnsy.fun/",
