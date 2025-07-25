@@ -40,7 +40,7 @@ const linkData = [
       },
       {
         name: "洋洋",
-        avatar: "/images/friend/yangy.png",
+        avatar: "/images/friend/yangy.webp",
         desc: "洋洋的小小Blog",
         url: "https://yangy.co/",
       },
@@ -58,7 +58,7 @@ const linkData = [
       },
       {
         name: "sy",
-        avatar: "/images/friend/clogo.png",
+        avatar: "/images/friend/clogo.webp",
         desc: "With you, through all.",
         url: "https://ddnsy.fun/",
       },
