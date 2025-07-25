@@ -29,7 +29,7 @@ const linkData = [
       {
         name: "5had0w",
         avatar: "/images/friend/5had0w.png",
-        desc: "一个游走在互联网边缘的影子，希望在这个世界留下一点痕迹。",
+        desc: "一个游走在互联网边缘的影子，希望在这个世界留下一点痕迹",
         url: "https://www.5had0w.com/",
       },
       {
@@ -49,6 +49,18 @@ const linkData = [
         avatar: "/images/friend/lzch.jpg",
         desc: "小刘的小小技术blog",
         url: "https://www.lzch.top/",
+      },
+      {
+        name: "轻风",
+        avatar: "/images/friend/qingfeng.jpg",
+        desc: "茫茫人海，多么幸运才能遇见你",
+        url: "https://www.qingfengnb.cn/",
+      },
+      {
+        name: "sy",
+        avatar: "/images/friend/clogo.png",
+        desc: "With you, through all.",
+        url: "https://ddnsy.fun/",
       },
     ],
   },
