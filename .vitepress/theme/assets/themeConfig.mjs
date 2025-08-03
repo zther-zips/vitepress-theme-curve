@@ -346,7 +346,7 @@ export const themeConfig = {
       enable: true,
     },
     HelloGithub: {
-      enable: true,
+      enable: false,
     },
   },
   // 友链
