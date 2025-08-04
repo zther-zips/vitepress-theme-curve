@@ -340,6 +340,7 @@ export const themeConfig = {
     timing: {
       enable: true,
       name: "池鱼", //要显示的名字
+      event: "活着", //事件名称
       date: "2010-09-07", //出生日期
     },
     // 站点数据

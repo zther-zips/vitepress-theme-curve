@@ -36,9 +36,9 @@ const dayCount = computed(() => {
     <!-- 未来倒计时 -->
     <p v-if="isFuture" class="custom-text">
       ⏳ 距离 
-            <span class="title-name">
-        {{ theme.aside.timing.name }}
-            </span> 还有
+          <span class="event-name">
+        {{ theme.aside.timing.event }}
+    </span> 还有
       <span class="day-number">{{ dayCount }}</span> 天
     </p>
     <!-- 过去累计天数 -->
@@ -46,7 +46,11 @@ const dayCount = computed(() => {
       💌 
       <span class="title-name">
         {{ theme.aside.timing.name }}
-    </span> 活着已经
+    </span> 
+          <span class="event-name">
+        {{ theme.aside.timing.event }}
+    </span>
+    已经
       <span class="day-number">{{ dayCount }}</span> 天
     </p>
   </div>
@@ -63,7 +67,14 @@ const dayCount = computed(() => {
 
 .title-name {
   font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.event-name {
   font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--vp-c-brand);
+  margin: 0 0.25rem;
   color: var(--main-color);
 }
 
@@ -78,7 +89,6 @@ const dayCount = computed(() => {
   font-size: 1.5em;
   font-weight: 800;
   color: var(--vp-c-brand);
-  margin: 0 0.25rem;
   vertical-align: middle;
   color: var(--main-color);
 }
