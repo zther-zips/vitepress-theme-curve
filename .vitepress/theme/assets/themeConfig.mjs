@@ -337,6 +337,11 @@ export const themeConfig = {
         date: "2025-09-07",
       },
     },
+    timing: {
+      enable: true,
+      name: "池鱼", //要显示的名字
+      date: "2010-09-07", //出生日期
+    },
     // 站点数据
     siteData: {
       enable: true,

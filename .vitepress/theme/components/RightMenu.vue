@@ -103,6 +103,7 @@
               <i class="iconfont icon-link"></i>
               <span class="name">在新标签页打开</span>
             </a>
+            <!--
             <a
               v-if="clickedType === 'text' || clickedType === 'input'"
               :href="`https://www.baidu.com/s?wd=${encodeURIComponent(clickedTypeData)}`"
@@ -112,6 +113,7 @@
               <i class="iconfont icon-baidu"></i>
               <span class="name">使用百度搜索</span>
             </a>
+            -->
             <a
               v-if="clickedType === 'text' || clickedType === 'input'"
               :href="`https://cn.bing.com/search?q=${encodeURIComponent(clickedTypeData)}`"
@@ -139,18 +141,20 @@
             </div>
           </div>
           <!-- 通用菜单 -->
+          <!---
           <div class="all-menu general">
-            <!-- 版权协议 -->
+            !-- 版权协议 --
             <div class="btn" @click="router.go('/pages/cc')">
               <i class="iconfont icon-accessible"></i>
               <span class="name">版权协议</span>
             </div>
-            <!-- 隐私政策 -->
+            !-- 隐私政策 --
             <div class="btn" @click="router.go('/pages/privacy')">
               <i class="iconfont icon-privacy"></i>
               <span class="name">隐私政策</span>
             </div>
           </div>
+        -->
           <div class="all-menu general">
             <!-- 复制地址 -->
             <div class="btn" @click="rightMenuFunc('copy-link')">
