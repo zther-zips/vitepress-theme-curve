@@ -305,7 +305,7 @@ export const themeConfig = {
     // twikoo
     // https://twikoo.js.org/
     twikoo: {
-      // 必填，若不想使用 CDN，可以使用 pnpm add twikoo 安装并引入
+      // 必填喵，若不想使用 CDN，可以使用 pnpm add twikoo 安装并引入
       js: "https://cdn.jsdelivr.net/npm/twikoo@1.6.42/dist/twikoo.all.min.js",
       envId: "",
       // 环境地域，默认为 ap-shanghai，腾讯云环境填 ap-shanghai 或 ap-guangzhou；Vercel 环境不填
