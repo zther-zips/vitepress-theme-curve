@@ -3,7 +3,7 @@ export const themeConfig = {
   // 站点信息
   siteMeta: {
     // 站点标题
-    title: "池鱼小栈",
+    title: "test",
     // 站点描述
     description: "跨过晨昏线，便是永夜。",
     // 站点logo
