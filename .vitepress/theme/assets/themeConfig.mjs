@@ -3,27 +3,27 @@ export const themeConfig = {
   // 站点信息
   siteMeta: {
     // 站点标题
-    title: "test",
+    title: "zの小窝",
     // 站点描述
     description: "跨过晨昏线，便是永夜。",
     // 站点logo
     logo: "/images/logo/logo.webp",
     // 站点地址
-    site: "https://chiyu.it",
+    site: "https://zther.top",
     // 语言
     lang: "zh-CN",
     // 作者
     author: {
-      name: "池鱼",
+      name: "zther",
       cover: "/images/logo/logo.webp",
-      email: "kazukokawagawa@qq.com",
-      link: "https://chiyu.it",
+      email: "zther@163.com",
+      link: "https://zther.top",
     },
   },
   // 备案信息
   icp: "萌ICP备20259222号",
   // 建站日期
-  since: "2025-04-29",
+  since: "2025-08-22",
   // 每页文章数据
   postSize: 5,
   // inject
@@ -164,12 +164,12 @@ export const themeConfig = {
         },
         {
           icon: "/images/logo/other/hot.png",
-          name: "热榜",
+          name: "来自chiyu的热榜",
           url: "https://hot.chiyu.it",
         },
         {
           icon: "/images/logo/other/nav.png",
-          name: "Nav",
+          name: "chiyu的Nav",
           url: "https://nav.chiyu.it",
         },
       ],
@@ -180,13 +180,13 @@ export const themeConfig = {
         {
           icon: "/images/uptime-favicon.ico",
           name: "检测",
-          url: "https://status.chiyu.it",
+          url: "https://status.zther.top/",
         },
-        {
-          icon: "/images/logo/logo.webp",
-          name: "镜像站",
-          url: "https://backup.chiyu.it",
-        },
+        //{
+         // icon: "/images/logo/logo.webp",
+          //name: "镜像站",
+        //  url: "https://backup.chiyu.it",
+       // },
       ],
     },
   //  {
@@ -224,27 +224,27 @@ export const themeConfig = {
     social: [
       {
         icon: "email",
-        link: "mailto:kazukokawagawa@qq.com",
+        link: "mailto:3761082958@qq.com",
       },
       {
         icon: "github",
-        link: "https://www.github.com/kazukokawagawa/",
+        link: "https://www.github.com/zther-zip/",
       },
       {
         icon: "telegram",
-        link: "https://t.me/Chiyuyu1314",
+        link: "https://t.me/@zip_ze",
       },
       {
         icon: "bilibili",
-        link: "https://space.bilibili.com/546803670",
+        link: "https://space.bilibili.com/1351743393",
       },
       {
         icon: "qq",
-        link: "https://res.abeim.cn/api/qq/?qq=3985726818",
+        link: "https://res.abeim.cn/api/qq/?qq=3761082958",
       },
       {
         icon: "twitter-x",
-        link: "https://twitter.com/Chiyuyu520",
+        link: "https://twitter.com/zther_z",
       },
     ],
     // sitemap
@@ -285,7 +285,7 @@ export const themeConfig = {
       {
         text: "服务",
         items: [
-          { text: "站点状态", link: "https://status.chiyu.it", newTab: true },
+          { text: "站点状态", link: "https://status.zther.top", newTab: true },
         ],
       },
     ],
@@ -307,7 +307,7 @@ export const themeConfig = {
     twikoo: {
       // 必填，若不想使用 CDN，可以使用 pnpm add twikoo 安装并引入
       js: "https://cdn.jsdelivr.net/npm/twikoo@1.6.42/dist/twikoo.all.min.js",
-      envId: "https://twikoo.20100907.xyz",
+      envId: "",
       // 环境地域，默认为 ap-shanghai，腾讯云环境填 ap-shanghai 或 ap-guangzhou；Vercel 环境不填
       region: "",
       lang: "zh-CN",
@@ -329,20 +329,20 @@ export const themeConfig = {
       enable: true,
     },
     // 倒计时
-    countDown: {
-      enable: true,
+    //countDown: {
+     // enable: true,
       // 倒计时日期
-      data: {
-        name: "生日",
-        date: "2025-09-07",
-      },
-    },
-    timing: {
-      enable: true,
-      name: "池鱼", //要显示的名字
-      event: "活着", //事件名称
-      date: "2010-09-07", //出生日期
-    },
+      //data: {
+       // name: "生日",
+        //date: "2025-09-07",
+     // },
+   // },
+  //  timing: {
+    //  enable: true,
+//name: "池鱼", //要显示的名字
+     // event: "活着", //事件名称
+   //   date: "2010-09-07", //出生日期
+    //},
     // 站点数据
     siteData: {
       enable: true,
@@ -395,13 +395,13 @@ export const themeConfig = {
   //"key": "1d65cc630df1f212e1d2e928643e3974",
  // },
   // 打赏
-  rewardData: {
-    enable: true,
+//  rewardData: {
+   // enable: true,
     // 微信二维码
-    wechat: "https://raw.chiyu.it/pic/pay/wx.webp",
+   // wechat: "https://raw.chiyu.it/pic/pay/wx.webp",
     // 支付宝二维码
-    alipay: "https://raw.chiyu.it/pic/pay/zfb.webp",
-  },
+   // alipay: "https://raw.chiyu.it/pic/pay/zfb.webp",
+//},
   // 图片灯箱
   fancybox: {
     enable: true,
