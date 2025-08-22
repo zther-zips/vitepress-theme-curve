@@ -395,13 +395,13 @@ export const themeConfig = {
   //"key": "1d65cc630df1f212e1d2e928643e3974",
  // },
   // 打赏
-//  rewardData: {
-   // enable: true,
+  rewardData: {
+    enable: false,
     // 微信二维码
-   // wechat: "https://raw.chiyu.it/pic/pay/wx.webp",
+    wechat: "https://raw.chiyu.it/pic/pay/wx.webp",
     // 支付宝二维码
-   // alipay: "https://raw.chiyu.it/pic/pay/zfb.webp",
-//},
+    alipay: "https://raw.chiyu.it/pic/pay/zfb.webp",
+  },
   // 图片灯箱
   fancybox: {
     enable: true,
