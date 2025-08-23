@@ -340,7 +340,7 @@ export const themeConfig = {
     timing: {
       enable: true,
       name: "小站", //要显示的名字
-      event: "活过", //事件名称
+      event: "存活", //事件名称
       date: "2025-08-21", //出生日期
     },
     // 站点数据
