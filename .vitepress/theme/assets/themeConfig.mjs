@@ -332,16 +332,16 @@ export const themeConfig = {
     countDown: {
       enable: false,
     // 倒计时日期
-      data: {
-        name: "生日",
-        date: "2025-09-07",
-      },
+      //data: {
+        //: "生日",
+        //date: "2025-09-07",
+      //},
     },
     timing: {
       enable: true,
-      name: "池鱼", //要显示的名字
-      event: "活着", //事件名称
-      date: "2010-09-07", //出生日期
+      //name: "池鱼", //要显示的名字
+     // event: "活着", //事件名称
+     // date: "2010-09-07", //出生日期
     },
     // 站点数据
     siteData: {
@@ -391,9 +391,8 @@ export const themeConfig = {
 // 请注意不是 Web端 (JS API)，免费申请，每日上限 5000 次
 // 此处提供的服务可能会超量从而无法访问，请自行申请！请自行申请！请自行申请！
 // 若此处设为空则调用 教书先生 API https://api.oioweb.cn/doc/weather/GetWeather
-  //weatherkey: {
-  //"key": "1d65cc630df1f212e1d2e928643e3974",
- // },
+  //key": "1d65cc630df1f212e1d2e928643e3974",
+  //},
   // 打赏
   rewardData: {
     enable: false,
