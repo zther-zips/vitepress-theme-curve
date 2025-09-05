@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue"
+import { sendToBaka } from "@/api/index.js"  // 引入你写的 API 函数
 
 const open = ref(false)
 const input = ref("")
@@ -15,14 +16,9 @@ async function sendMessage() {
   input.value = ""
 
   try {
-    // 这里换成你的 bakagptapi 代理地址，比如 /api/baka
-    const res = await fetch("/api/baka", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ messages: [...messages.value, userMessage] })
-    })
-    const data = await res.json()
-    messages.value.push({ role: "assistant", content: data.reply || "(baka没有回话…)" })
+    // 调用你的 sendToBaka API
+    const data = await sendToBaka([...messages.value, userMessage])
+    messages.value.push({ role: "assistant", content: data.reply })
   } catch (e) {
     messages.value.push({ role: "assistant", content: "呜，baka出错了喵…" })
   }

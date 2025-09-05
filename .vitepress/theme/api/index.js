@@ -149,3 +149,26 @@ export const getWeather = async (key, city) => {
 //  const res = await fetch("https://api.oioweb.cn/api/weather/GetWeather");
 //  return await res.json();
 // };
+
+/**
+ * 发送消息给 Baka GPT
+ * @param {Array<{role: string, content: string}>} messages
+ * @returns {Promise<{reply: string}>}
+ */
+export const sendToBaka = async (messages) => {
+  try {
+    // 这里假设你自己搭了一个代理 API，比如 /api/baka
+    const res = await fetch("/api/baka", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ messages }),
+    });
+    const data = await res.json();
+    return {
+      reply: data.reply || "(baka 没有回应喵…)",
+    };
+  } catch (e) {
+    console.error("Baka API 错误:", e);
+    return { reply: "呜，baka 出错了喵…" };
+  }
+};

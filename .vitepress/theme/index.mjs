@@ -19,8 +19,6 @@ import InstantSearch from "vue-instantsearch/vue3/es";
 
 // 🐾 BakaChat
 import BakaChat from "@/components/BakaChat.vue";
-// 🐾 Bakagptapi
-import { createBakagpt } from "bakagptapi";
 
 const Theme = {
   Layout: () => h(App),
@@ -32,12 +30,6 @@ const Theme = {
 
     // 🐾 注册baka小窗组件
     app.component("BakaChat", BakaChat);
-
-    // 🐾 注册bakagptapi插件
-    app.use(createBakagpt({
-      apiKey: "你的apikey喵",
-      endpoint: "https://api.bakagpt.top"
-    }));
 
     // 插件
     enhanceAppWithTabs(app);
