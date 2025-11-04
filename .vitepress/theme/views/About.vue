@@ -5,8 +5,8 @@
       <!-- 介绍 -->
       <div class="about-item hello">
         <span class="text1">你好，很高兴认识你👋</span>
-        <span class="text2 title2">我是 池鱼</span>
-        <span class="text3">是一名 正在HRT的MtF🏳‍⚧🏳‍⚧</span>
+        <span class="text2 title2">我是 zther</span>
+        <!--<span class="text3">是一名 </span>-->
       </div>
       <!-- 追求 -->
       <!--
@@ -156,16 +156,16 @@
           class="about-item map image"
           style="background-image: url(https://raw.chiyu.it/other/tc.png)"
         >
-          <span class="position">我现在住在 <strong>中国，江苏省，苏州市</strong></span>
+          <span class="position">我现在住在 <strong>中国，云南省，昆明市</strong></span>
         </div>
         <div class="about-itsem info">
           <div class="info-item">
             <span class="info-name">诞生于</span>
-            <span class="info-num" style="--color: #43a6c6">2010</span>
+            <span class="info-num" style="--color: #43a6c6">2007</span>
           </div>
           <div class="info-item">
             <span class="info-name">生日</span>
-            <span class="info-num" style="--color: #dfac46">0907</span>
+            <span class="info-num" style="--color: #dfac46">0804</span>
           </div>
         </div>
       </div>
