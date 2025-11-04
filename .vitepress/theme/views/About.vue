@@ -176,9 +176,6 @@
         <span class="tip">关于这个破站</span>
         <span class="title2">一个记录自己生活的站点</span>
         <p class="text">
-          首先感谢一下小恒提供的域名贡献
-        </p>
-        <p class="text">
           写几句slogan好了
         </p>
         <p class="text">
