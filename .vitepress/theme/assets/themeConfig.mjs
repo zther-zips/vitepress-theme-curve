@@ -21,7 +21,7 @@ export const themeConfig = {
     },
   },
   // 备案信息
-  icp: "萌ICP备20259222号",
+  icp: "null",//萌ICP备20259222号(这个是池鱼鱼的喵，本站由ta的网站修改而成)
   // 建站日期
   since: "2025-08-22",
   // 每页文章数据
@@ -161,16 +161,6 @@ export const themeConfig = {
           icon: "/images/logo/logo.webp",
           name: "主站",
           url: "/",
-        },
-        {
-          icon: "/images/logo/other/hot.png",
-          name: "来自chiyu的热榜",
-          url: "https://hot.chiyu.it",
-        },
-        {
-          icon: "/images/logo/other/nav.png",
-          name: "chiyu的Nav",
-          url: "https://nav.chiyu.it",
         },
       ],
     },
