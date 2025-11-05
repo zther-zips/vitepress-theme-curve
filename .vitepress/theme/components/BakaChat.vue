@@ -1,5 +1,5 @@
 <script setup>
-import { ref, nextTick } from "vue"
+
 import { sendToBaka } from "@/api/index.js"  // 引入 API 函数
 
 const open = ref(false)

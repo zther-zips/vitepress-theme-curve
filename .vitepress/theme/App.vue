@@ -40,6 +40,7 @@
   <RightMenu ref="rightMenuRef" />
   <!-- 全局消息 -->
   <Message />
+  <RandomQuote v-if="frontmatter.layout === 'home'" />
 </template>
 
 <script setup>
@@ -47,7 +48,7 @@ import { storeToRefs, createPinia } from "pinia";
 import { mainStore, initializeCursor } from "@/store";
 import { calculateScroll, specialDayGray } from "@/utils/helper";
 import cursorInit from "@/utils/cursor.js";
-
+import RandomQuote from "./components/Aside/Widgets/randomquote.vue";
 import App from '@/App.vue';
 
 const app = createApp(App);
