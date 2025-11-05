@@ -157,16 +157,42 @@ export const getWeather = async (key, city) => {
  */
 export const sendToBaka = async (messages) => {
   try {
-    // 这里假设你自己搭了一个代理 API，比如 /api/baka
     const res = await fetch("/api/baka", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ messages }),
     });
-    const data = await res.json();
-    return {
-      reply: data.reply || "(baka 没有回应喵…)",
-    };
+
+    // 先读取为文本，便于调试空或非 JSON 响应
+    const text = await res.text();
+
+    // 如果 HTTP 错误，打印返回内容并返回友好提示
+    if (!res.ok) {
+      console.error("Baka 后端返回错误:", res.status, text);
+      return { reply: "呜，baka 后端返回错误喵…" };
+    }
+
+    if (!text) {
+      console.warn("Baka 返回了空响应");
+      return { reply: "(baka 没有回应喵…)" };
+    }
+
+    // 尝试解析为 JSON，失败则把原始文本作为回复（有助调试）
+    let data;
+    try {
+      data = JSON.parse(text);
+    } catch (parseErr) {
+      console.warn("Baka 返回非 JSON 内容:", text);
+      // 如果后端返回的是直接文本（比如错误信息），将其展示；否则使用默认提示
+      return { reply: text || "(baka 没有回应喵…)" };
+    }
+
+    const reply =
+      data.reply ||
+      data.choices?.[0]?.message?.content ||
+      data.choices?.[0]?.text ||
+      "(baka 没有回应喵…)";
+    return { reply };
   } catch (e) {
     console.error("Baka API 错误:", e);
     return { reply: "呜，baka 出错了喵…" };

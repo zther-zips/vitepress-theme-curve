@@ -1,3 +1,4 @@
+// ...existing code...
 import { defineConfig } from "vitepress";
 import { createRssFile } from "./theme/utils/generateRSS.mjs";
 import {
@@ -116,6 +117,13 @@ export default defineConfig({
     },
     // 服务器
     server: {
+      proxy: {
+        '/api': {
+          target: 'http://localhost:3001',
+          changeOrigin: true,
+          secure: false,
+        },
+      },
       port: 9877,
     },
     // 构建
@@ -129,3 +137,4 @@ export default defineConfig({
     },
   },
 });
+// ...existing code...

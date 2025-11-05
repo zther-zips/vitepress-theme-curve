@@ -1,26 +1,39 @@
 <script setup>
-import { ref } from "vue"
-import { sendToBaka } from "@/api/index.js"  // 引入你写的 API 函数
+import { ref, nextTick } from "vue"
+import { sendToBaka } from "@/api/index.js"  // 引入 API 函数
 
 const open = ref(false)
 const input = ref("")
+const loading = ref(false)
 const messages = ref([
   { role: "assistant", content: "喵～咱是baka，窝在你的小窝里了w" }
 ])
 
-async function sendMessage() {
-  if (!input.value.trim()) return
-  const userMessage = { role: "user", content: input.value }
-  messages.value.push(userMessage)
-  const currentInput = input.value
-  input.value = ""
+const scrollToBottom = async () => {
+  await nextTick()
+  const el = document.querySelector(".baka-messages")
+  if (el) el.scrollTop = el.scrollHeight
+}
 
+async function sendMessage() {
+  const text = input.value.trim()
+  if (!text) return
+  const userMessage = { role: "user", content: text }
+  messages.value.push(userMessage)
+  input.value = ""
+  await scrollToBottom()
+
+  loading.value = true
   try {
-    // 调用你的 sendToBaka API
-    const data = await sendToBaka([...messages.value, userMessage])
+    // 直接传当前消息数组（不重复附加）
+    const data = await sendToBaka([...messages.value])
     messages.value.push({ role: "assistant", content: data.reply })
   } catch (e) {
+    console.error(e)
     messages.value.push({ role: "assistant", content: "呜，baka出错了喵…" })
+  } finally {
+    loading.value = false
+    await scrollToBottom()
   }
 }
 </script>
@@ -73,6 +86,11 @@ async function sendMessage() {
   font-size: 1.5rem;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0,0,0,.2);
+
+  /* 提高层级，避免被遮挡 */
+  z-index: 9999;
+  /* 防止创建新的 stacking context 导致问题 */
+  transform: translateZ(0);
 }
 
 .baka-drawer {
@@ -87,8 +105,13 @@ async function sendMessage() {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+
+  /* 抽屉比按钮稍低一个层级，保证按钮可覆盖在抽屉上（按需调整） */
+  z-index: 9998;
+  transform: translateZ(0);
 }
 
+/* 保留现有滚动与样式，只调整层级 */
 .baka-messages {
   flex: 1;
   padding: .5rem;
