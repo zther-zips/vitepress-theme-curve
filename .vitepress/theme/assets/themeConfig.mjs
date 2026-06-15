@@ -218,7 +218,7 @@ export const themeConfig = {
       },
       {
         icon: "github",
-        link: "https://www.github.com/zther-zip/",
+        link: "https://www.github.com/zther-zips/",
       },
       {
         icon: "telegram",
@@ -251,7 +251,7 @@ export const themeConfig = {
       {
         text: "项目",
         items: [
-          { text: "本站源码", link: "https://github.com/kazukokawagawa/vitepress-theme-curve", newTab: true },
+          { text: "本站源码", link: "https://github.com/zther-zips/vitepress-theme-curve", newTab: true },
         ],
       },
       //{

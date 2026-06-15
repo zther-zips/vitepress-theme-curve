@@ -21,7 +21,7 @@
           <span class="name">主题</span>
         </a>
         -->
-        <a class="rss link" href="https://chiyu.it/rss.xml" target="_blank">
+        <a class="rss link" href="https://zther.top/rss.xml" target="_blank">
           <i class="iconfont icon-rss" />
           <span class="name">订阅</span>
         </a>
