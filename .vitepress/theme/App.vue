@@ -6,7 +6,9 @@
   <!-- 中控台 -->
   <Control />
   <!-- 增加ai -->
-  <BakaChat />
+  <ClientOnly>
+    <BakaChat />
+  </ClientOnly>
   <!-- 导航栏 -->
   <Nav />
   <!-- 主内容 -->

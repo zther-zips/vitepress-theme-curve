@@ -2,17 +2,32 @@ import express from 'express';
 import dotenv from 'dotenv';
 dotenv.config();
 
+// 关闭开关：在 .env 里设置 BAKA_ENABLED=false 即可关闭
+const ENABLED = process.env.BAKA_ENABLED !== 'false';
+
 const app = express();
 app.use(express.json());
 
 const PORT = process.env.BAKA_PORT || 3001;
 const KEY = process.env.MOONSHOT_API_KEY || process.env.OPENAI_API_KEY;
 
-if (!KEY) {
+if (!ENABLED) {
+  console.log('🚫 Baka AI 已被禁用（BAKA_ENABLED=false）');
+}
+
+if (!KEY && ENABLED) {
   console.warn('WARN: MOONSHOT_API_KEY / OPENAI_API_KEY 未设置，/api/baka 将返回 500');
 }
 
 app.post('/api/baka', async (req, res) => {
+  // 如果禁用了，直接返回提示
+  if (!ENABLED) {
+    return res.status(503).json({ 
+      error: 'Baka AI 当前已禁用',
+      tip: '如需启用，请设置 BAKA_ENABLED=true 并重启服务'
+    });
+  }
+
   try {
     const messages = req.body?.messages || [];
     if (!KEY) return res.status(500).json({ error: 'API key 未配置' });
@@ -50,5 +65,9 @@ app.post('/api/baka', async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Baka proxy running at http://localhost:${PORT}/api/baka`);
+  if (ENABLED) {
+    console.log(`Baka proxy running at http://localhost:${PORT}/api/baka`);
+  } else {
+    console.log(`Baka proxy 运行中，但 AI 功能已禁用 http://localhost:${PORT}/api/baka`);
+  }
 });

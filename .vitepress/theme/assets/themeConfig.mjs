@@ -21,7 +21,7 @@ export const themeConfig = {
     },
   },
   // 备案信息
-  icp: "null",//萌ICP备20259222号(这个是池鱼鱼的喵，本站由ta的网站修改而成)
+  icp: "",//萌ICP备20259222号(这个是池鱼鱼的喵，本站由ta的网站修改而成)
   // 建站日期
   since: "2025-08-22",
   // 每页文章数据
@@ -282,7 +282,7 @@ export const themeConfig = {
   },
   // 评论
   comment: {
-    enable: true,
+    enable: false,
     // 评论系统选择
     // artalk / twikoo
     type: "twikoo",
@@ -423,5 +423,9 @@ export const themeConfig = {
   // 站点统计
   tongji: {
     "51la": "3M1I52LMkdPIgpya",
+  },
+  // Baka AI 助手
+  bakaChat: {
+    enable: false,
   },
 };

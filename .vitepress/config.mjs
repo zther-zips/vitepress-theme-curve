@@ -117,14 +117,14 @@ export default defineConfig({
     },
     // 服务器
     server: {
-      proxy: {
-        '/api': {
-          target: 'http://localhost:3001',
-          changeOrigin: true,
-          secure: false,
-        },
-      },
-      port: 9877,
+    //  proxy: {
+    //   '/api': {
+    //      target: 'http://localhost:3001',
+    //      changeOrigin: true,
+    //      secure: false,
+    //    },
+    //  },
+        port: 9877,
     },
     // 构建
     build: {

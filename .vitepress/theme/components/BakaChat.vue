@@ -1,6 +1,14 @@
 <script setup>
-
+import { ref, computed } from "vue"
+import { useData } from "vitepress"
 import { sendToBaka } from "@/api/index.js"  // 引入 API 函数
+
+// 读取主题配置
+const { theme } = useData()
+const bakaConfig = computed(() => theme.value?.bakaChat || { enable: false })
+
+// 如果禁用了，直接不渲染
+const isEnabled = computed(() => bakaConfig.value.enable !== false)
 
 const open = ref(false)
 const input = ref("")
@@ -39,7 +47,7 @@ async function sendMessage() {
 </script>
 
 <template>
-  <div>
+  <div v-if="isEnabled">
     <!-- 按钮 -->
     <button
       class="baka-btn"

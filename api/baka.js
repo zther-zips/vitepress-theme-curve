@@ -43,7 +43,7 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        model: 'kimi-k2-0905-preview',
+        model: 'moonshot-v1',
         messages,
         max_tokens: 800,
       }),

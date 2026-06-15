@@ -61,7 +61,10 @@ async function generate() {
     const data = await resp.json()
     text.value = data.reply || data.choices?.[0]?.message?.content || data.choices?.[0]?.text || ''
   } catch (e) {
-    error.value = e.message
+  console.error('生成失败:', e);
+  // 出错时显示默认温柔文案
+  text.value = '「风有点大了，等会儿再聊吧～」';
+
   } finally {
     isStreaming.value = false
   }
