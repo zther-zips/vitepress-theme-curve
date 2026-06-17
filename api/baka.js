@@ -43,7 +43,7 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        model: 'moonshot-v1',
+        model: 'moonshot-v1-8k',
         messages,
         max_tokens: 800,
       }),
