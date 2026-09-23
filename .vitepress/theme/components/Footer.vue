@@ -6,7 +6,8 @@
         <a :href="theme.siteMeta.author.link" class="author link" target="_blank">
           {{ theme.siteMeta.author.name }}
         </a>
-        <a class="icp link" href="https://icp.gov.moe/?keyword=20259222" target="_blank">
+        <a class="icp link" href="https://icp.gov.moe/?keyword=20260844" target="_blank">
+          萌ICP备20260844号
           <i class="iconfont icon-safe" />
           {{ theme.icp }}
         </a>
